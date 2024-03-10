@@ -21,15 +21,15 @@ const Dashboard = () => {
                     <p>Livestock</p>
                     <div className='leftdashboardbuttons'>
                     <label>
-                        <img src={dashboardicon} alt=''/>
+                        <img src={dashboardicon} alt='img'/>
                         Dashboard
                     </label>
                     <label>
-                        <img src={animalicon} alt=''/>
+                        <img src={animalicon} alt='img'/>
                         Animals 
                     </label>
                     <label>
-                        <img src={settingicon} alt=''/>
+                        <img src={settingicon} alt='img'/>
                         Setting
                     </label>
 
@@ -48,7 +48,7 @@ const Dashboard = () => {
                 <div className='innerrightdashboard'>
                     <div className='innerrightdashboardtop'>
                         <div className='dashboardtopleft'>
-                            <h2 className='dashboardpage'>Home  <span className='bluedashboard'> > Dashboard</span></h2>
+                            <h2 className='dashboardpage'>Home  <span className='bluedashboard'> / Dashboard</span></h2>
                             <h1 className='dashboardpagetop'>Dashboard</h1>
                         </div>
                         <div className='dashboardtopright'>
