@@ -7,9 +7,9 @@ import Dashboard from './pages/Dashboard'
 
 function App() {
   return (
-    <Signup/>
+    // <Signup/>
     // <Signin/>
-    // <Dashboard/>
+    <Dashboard/>
   );
 }
 

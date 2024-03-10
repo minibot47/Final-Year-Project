@@ -38,7 +38,27 @@ const Dashboard = () => {
                 </div>
 
             </div>
-            <div className='rightdashboard'></div>
+            <div className='rightdashboard'>
+                <div className='innerrightdashboard'>
+                    <h2 className='dashboardpage'>Home  <span className='bluedashboard'> > Dashboard</span></h2>
+                    <h1 className='dashboardpagetop'>Dashboard</h1>
+
+                    <div className='dashboardanimalcount'>
+                        <div className='innerdashboardanimalcount'>
+
+                        </div>
+                        <div className='innerdashboardanimalcount2'>
+
+                        </div>
+
+                    </div>
+                    <div className='dashboardchart'>
+                            
+
+                    </div>
+                </div>
+
+            </div>
         </div>
 
 

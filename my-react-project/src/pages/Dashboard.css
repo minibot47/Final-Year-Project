@@ -78,4 +78,54 @@ p{
     margin-right: 5%;
 }
 
+.innerrightdashboard{
+    padding-top: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.dashboardpage{
+    display: block;
+    width: 500px;
+}
+
+.bluedashboard{
+    color: rgb(108, 108, 234);
+}
+
+.dashboardpagetop{
+    color: rgb(108, 108, 234);
+}
+
+.dashboardanimalcount{
+    display: flex;
+    color: white;
+    height: 250px;
+    width: 850px;
+    
+}
+
+.innerdashboardanimalcount{
+    background-color: rgb(139, 139, 236);
+    color: black;
+    width: 50%;
+    height: 250px;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+.innerdashboardanimalcount2{
+    background-color: aqua;
+    color: black;
+    width: 50%;
+    height: 250px;
+    margin-bottom: 2%;
+}
+.dashboardchart{
+    width: 850px;
+    height: 250px;
+    background-color: aquamarine;
+    margin-top: 2%;
+
+}
+
 
