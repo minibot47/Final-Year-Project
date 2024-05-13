@@ -10,6 +10,7 @@ import not from "../images/not.png"
 import profile from "../images/profile.png"
 import chart from "../images/chart1.png"
 import chart1 from "../images/chart2.png"
+import appointmenticon from "../images/appointment.png"
 
 
 const Dashboard = () => {
@@ -27,6 +28,10 @@ const Dashboard = () => {
                     <label>
                         <img src={animalicon} alt='img'/>
                         Animals 
+                    </label>
+                    <label>
+                        <img src={appointmenticon} alt='img'/>
+                        Appointments
                     </label>
                     <label>
                         <img src={settingicon} alt='img'/>
@@ -48,7 +53,7 @@ const Dashboard = () => {
                 <div className='innerrightdashboard'>
                     <div className='innerrightdashboardtop'>
                         <div className='dashboardtopleft'>
-                            <h2 className='dashboardpage'>Home  <span className='bluedashboard'> / Dashboard</span></h2>
+                            <h2 className='dashboardpage'>Home  <span className='bluedashboard'>  > Dashboard</span></h2>
                             <h1 className='dashboardpagetop'>Dashboard</h1>
                         </div>
                         <div className='dashboardtopright'>
@@ -64,8 +69,8 @@ const Dashboard = () => {
                         <div className='innerdashboardanimalcount'>
                             <div className='innerdashboardanimalcounttexts'>
                                 <img src={dogpaw} alt='img'/>
-                                <p>Total Number of Animals</p>
-                                <p>500</p>
+                                <p>Total No of Animals</p>
+                                <span>10,000</span>
                             </div>
 
 
@@ -74,7 +79,7 @@ const Dashboard = () => {
                             <div className='innerdashboardanimalcount2texts'>
                                 <img src={dogpaw2} alt='img'/>
                                 <p>Species Distribution</p>
-                                <p>200</p>
+                                <span>200</span>
                             </div>
 
                         </div>
@@ -83,8 +88,47 @@ const Dashboard = () => {
                     <div className='dashboardchart'>
                         <img src={chart}/>
                         <img src={chart1}/>
-                            
+                    </div>
+                    <div className='Animalcharttable'>
+                        <div className='Animalcharttable-top'>
+                            <h2>Livestock</h2>
+                            <h2>See all></h2>
+                        </div>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Specie</th>
+                                <th>Status</th>
+                                <th>Last Treatment</th>
+                                <th>Action</th>
 
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>1</td>
+                                <td>Cow</td>
+                                <td>Healthy</td>
+                                <td>04/12/2003 - 10pm</td>
+                                <td>icon</td>
+                                </tr>
+                                <tr>
+                                <td>2</td>
+                                <td>Pig</td>
+                                <td>Weak</td>
+                                <td>04/12/2003 - 10pm</td>
+                                <td>icon</td>
+                                </tr>
+                                <tr>
+                                <td>3</td>
+                                <td>Goat</td>
+                                <td>Sick</td>
+                                <td>04/12/2003 - 10pm</td>
+                                <td>icon</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
