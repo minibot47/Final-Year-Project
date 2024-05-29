@@ -1,0 +1,97 @@
+.Animals{
+    width: 1150px;
+    margin-left: 3%;
+}
+
+.innerrightAnimalstop{
+    margin-top: 1%;
+    width: 1100px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.Animalstopright{
+    display: flex;
+    flex-direction: row;
+    margin-left: -30%;
+}
+.Animalstopright img{
+    height: 50px;
+    gap: 1%;
+    
+}
+
+.blueAnimals{
+    color: rgba(33, 150, 243, 1);
+}
+
+.Animalspagetop{
+    color: rgba(33, 150, 243, 1);
+}
+
+.animalhealthtop{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.animalhealth{
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+
+}
+
+select{
+    width: 120px;
+    height: 35px;
+    outline-color: rgba(33, 150, 243, 1);
+    margin-left: 20%;
+    margin-right: 1%;
+    text-align: center;
+    color: rgba(33, 150, 243, 1);
+}
+
+.Animalsearchbar{
+    height: 36px;
+}
+.Animalsearchbar button{
+    height: 90%;
+    margin-left: 4%;
+}
+
+input{
+    height: 80%;
+    width: 350px;
+    margin-right: 4%;
+}
+
+.Animals table{
+    width: 95%;
+    border: 1px solid transparent;
+    border-collapse: collapse;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.Animals th{
+    width: 1064px;
+    background-color: rgba(196, 196, 196, 0.4);
+}
+.Animals tr{
+    width: 1064px;
+    height: 60px;
+    text-align: center;
+    border: 1px solid rgba(229, 229, 229, 1);
+    background-color: white;
+}
+
+.numbering{
+    height: 30px;
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 2.5rem;
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import './Signin.css'
+import { Link, Route, Switch } from 'react-router-dom';
 import Cat from '../images/Cat.png';
 
 const Signin = () => {

@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link, Route, Switch } from 'react-router-dom';
+
 import dog from '../images/Dog.png'
 import './Signup.css'
 import eyes from '../images/logout.png'
