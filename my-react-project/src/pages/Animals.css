@@ -16,6 +16,7 @@
     flex-direction: row;
     margin-left: -30%;
 }
+
 .Animalstopright img{
     height: 50px;
     gap: 1%;
@@ -37,6 +38,10 @@
     justify-content: space-between;
 }
 
+.Animalspage h2{
+    margin-bottom: 0%;
+}
+
 .animalhealth{
     display: flex;
     flex-direction: row;
@@ -52,6 +57,8 @@ select{
     margin-right: 1%;
     text-align: center;
     color: rgba(33, 150, 243, 1);
+    font-size: 15px;
+    font-weight: 200px;
 }
 
 .Animalsearchbar{
@@ -93,5 +100,27 @@ input{
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    gap: 2.5rem;
+    gap: 2rem;
+    color: gray;
+}
+.numbering h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 35px;
+    /* background-color: rgba(196, 196, 196, 0.4); */
+    font-weight: 100;
+    font-size: 30px;
+}
+
+.numbering h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 35px;
+    /* background-color: rgba(196, 196, 196, 0.4); */
+    border-radius: 0.2rem;
+    font-weight: 100;
 }

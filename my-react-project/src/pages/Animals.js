@@ -26,7 +26,6 @@ const Animals = () => {
                     <div className='Animalsearchbar'>
                     <input type="text" placeholder="Search..." value={searchTerm} onChange={handleChange}/>
                     </div>
-                    <button onClick={() => console.log("Searching for:", searchTerm)}> ADD </button>
                     </div>
                   </div>
 
