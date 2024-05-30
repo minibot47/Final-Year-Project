@@ -49,13 +49,12 @@
 }
 
 .Appoinmentsbody{
-    border: black solid 2px;
+    border: rgba(128, 128, 128, 0.36) solid 2px;
     padding-left: 3%;
     padding-right: 3%;
     padding-bottom: 2%;
     color: black;
     width: 90%;
-    /* background-color: brown; */
 }
 
 .date-picker-container {
@@ -96,6 +95,10 @@
 .timeslots button{
     font-size: 20px;
     color: rgba(100, 100, 100, 1);
+}
+
+.timeslots button:hover{
+    border: rgb(41, 161, 209) solid 2px;
 }
 
 .timeslot1{
@@ -166,6 +169,12 @@
     font-size: 20px;
 }
 
+.reminder-dropdown-container select:hover{
+    border: black solid 1px;
+}
+
+
+
 .modeofmeeting{
     width: 50%;
     display: flex;
@@ -177,6 +186,15 @@
 .modeofmeeting button{
     width: 250px;
     height: 40px;
+    border-radius: transparent 5px;
+    font-size: 18px;
+}
+
+.modeofmeeting button:hover{
+    background-color: rgba(33, 150, 243, 1);
+    outline: transparent;
+    border: transparent;
+    border-radius:5px;
 }
 
 .bookappoinment{
@@ -195,5 +213,9 @@
     border: white solid 2px ;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.bookappoinment button:hover{
+    border: black solid 2px;
 }
   

@@ -45,6 +45,7 @@ const Appointments = () => {
             onChange={(date) => setSelectedDate(date)}
             placeholderText="SELECT A DATE"
             className="date-picker"
+            dateFormat="EEEE, MMMM yyyy"
           />
         </div>
         <h2>Available Time slots (Monday to Friday)</h2>
