@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import "./Animals.css"
 import not from "../images/not.png";
 import profile from "../images/profile.png";

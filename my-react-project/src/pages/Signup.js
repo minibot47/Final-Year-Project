@@ -30,7 +30,7 @@ const Signup = () => {
               <input type='password' placeholder='RE-Enter Password' required></input>
             </label>
             <button className='signupbutton'>Sign Up</button>
-            <div className='signupbottom'>Already have an account? <Link to='/Dashboard'><button className='signinbutton'>Sign In</button></Link></div>
+            <div className='signupbottom'>Already have an account? <Link to='/Signin'><button className='signinbutton'>Sign In</button></Link></div>
             
           </form>
         </div>
