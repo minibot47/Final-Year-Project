@@ -79,6 +79,25 @@
     font-size: 18px;
     
   }
+
+  .signinbottom button{
+    border: none;
+    background-color: transparent;
+    color: rgb(18, 174, 236);
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .signinbottom button:hover{
+    background-color: transparent;
+  }
+
+ a{
+  text-decoration: none;
+
+  }
+
+
   
   .signinbottom a{
     color: blue;

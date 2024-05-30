@@ -14,6 +14,7 @@ import appointmenticon from '../images/appointment.png';
 import Animals from './Animals';
 import Appointments from "./Appointments.js";
 import Settings from './Settings.js';
+import elipses from "../images/elipses vertical.png"
 
 const Dashboard = () => {
   const [view, setView] = useState('dashboard');
@@ -44,7 +45,7 @@ const Dashboard = () => {
             </div>
           </div>
           <div className='leftdashboardbuttonsbottom'>
-            <label>
+            <label className='logoutbutton'>
               <img src={logouticon} alt=''/>
               <Link to='/Signin'>
               <button>LOGOUT</button>
@@ -88,7 +89,7 @@ const Dashboard = () => {
               <div className='Animalcharttable'>
                 <div className='Animalcharttable-top'>
                   <h2>Livestock</h2>
-                  <h2>See all {">"} </h2>
+                  <button onClick={() => setView('animals')}>See all {'>'}</button>
                 </div>
                 <table>
                   <thead>
@@ -106,21 +107,21 @@ const Dashboard = () => {
                       <td>Cow</td>
                       <td>Healthy</td>
                       <td>04/12/2003 - 10pm</td>
-                      <td>icon</td>
+                      <td><img src={elipses} alt="elipses"/></td>
                     </tr>
                     <tr>
                       <td>2</td>
                       <td>Pig</td>
                       <td>Weak</td>
                       <td>04/12/2003 - 10pm</td>
-                      <td>icon</td>
+                      <td><img src={elipses} alt="elipses"/></td>
                     </tr>
                     <tr>
                       <td>3</td>
                       <td>Goat</td>
                       <td>Sick</td>
                       <td>04/12/2003 - 10pm</td>
-                      <td>icon</td>
+                      <td><img src={elipses} alt="elipses"/></td>
                     </tr>
                   </tbody>
                 </table>

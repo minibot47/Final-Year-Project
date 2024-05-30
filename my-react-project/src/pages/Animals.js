@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "./Animals.css"
 import not from "../images/not.png";
 import profile from "../images/profile.png";
+import elipses from "../images/elipses vertical.png"
 
 const Animals = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -52,63 +53,63 @@ const Animals = () => {
                       <td>Cow</td>
                       <td>Healthy</td>
                       <td>04/12/2003 - 10pm</td>
-                      <td>icon</td>
+                      <td><img src={elipses} alt="elipses"/></td>
                     </tr>
                     <tr>
                       <td>2</td>
                       <td>Pig</td>
                       <td>Weak</td>
                       <td>04/12/2003 - 10pm</td>
-                      <td>icon</td>
+                      <td><img src={elipses} alt="elipses"/></td>
                     </tr>
                     <tr>
                       <td>3</td>
                       <td>Goat</td>
                       <td>Sick</td>
                       <td>04/12/2003 - 10pm</td>
-                      <td>icon</td>
+                      <td><img src={elipses} alt="elipses"/></td>
                     </tr>
                     <tr>
                       <td>4</td>
                       <td>Goat</td>
                       <td>Sick</td>
                       <td>04/12/2003 - 10pm</td>
-                      <td>icon</td>
+                      <td><img src={elipses} alt="elipses"/></td>
                     </tr>
                     <tr>
                       <td>5</td>
                       <td>Goat</td>
                       <td>Sick</td>
                       <td>04/12/2003 - 10pm</td>
-                      <td>icon</td>
+                      <td><img src={elipses} alt="elipses"/></td>
                     </tr>
                     <tr>
                       <td>6</td>
                       <td>Goat</td>
                       <td>Sick</td>
                       <td>04/12/2003 - 10pm</td>
-                      <td>icon</td>
+                      <td><img src={elipses} alt="elipses"/></td>
                     </tr>
                     <tr>
                       <td>7</td>
                       <td>Goat</td>
                       <td>Sick</td>
                       <td>04/12/2003 - 10pm</td>
-                      <td>icon</td>
+                      <td><img src={elipses} alt="elipses"/></td>
                     </tr>
                     <tr>
                       <td>8</td>
                       <td>Goat</td>
                       <td>Sick</td>
                       <td>04/12/2003 - 10pm</td>
-                      <td>icon</td>
+                      <td><img src={elipses} alt="elipses"/></td>
                     </tr>
                     <tr>
                       <td>9</td>
                       <td>Goat</td>
                       <td>Sick</td>
                       <td>04/12/2003 - 10pm</td>
-                      <td>icon</td>
+                      <td><img src={elipses} alt="elipses"/></td>
                     </tr>
                   </tbody>
                 </table>

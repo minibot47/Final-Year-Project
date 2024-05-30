@@ -38,6 +38,18 @@
     cursor: pointer;
     border: none;
   }
+
+  .signupbottom button{
+    border: none;
+    background-color: transparent;
+    color: rgb(18, 174, 236);
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .signupbottom button:hover{
+    background-color: transparent;
+  }
   
   .signupbutton:hover{
     background-color: skyblue;
