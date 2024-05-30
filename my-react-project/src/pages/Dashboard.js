@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import "./Dashboard.css";
 import dashboardicon from "../images/dashboard.png";
 import animalicon from '../images/animal.png';
@@ -45,7 +46,9 @@ const Dashboard = () => {
           <div className='leftdashboardbuttonsbottom'>
             <label>
               <img src={logouticon} alt=''/>
-              Logout
+              <Link to='/Signin'>
+              <button>LOGOUT</button>
+              </Link>
             </label>
           </div>
         </div>

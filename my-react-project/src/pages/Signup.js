@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link, Route, Switch } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 import dog from '../images/Dog.png'
 import './Signup.css'
 import eyes from '../images/logout.png'
@@ -31,7 +30,7 @@ const Signup = () => {
               <input type='password' placeholder='RE-Enter Password' required></input>
             </label>
             <button className='signupbutton'>Sign Up</button>
-            <div className='signupbottom'>Already have an account? <a href='#'>Sign up</a></div>
+            <div className='signupbottom'>Already have an account? <Link to='/Dashboard'><button className='signinbutton'>Sign In</button></Link></div>
             
           </form>
         </div>

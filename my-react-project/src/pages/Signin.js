@@ -1,6 +1,6 @@
 import React from 'react'
 import './Signin.css'
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Cat from '../images/Cat.png';
 
 const Signin = () => {
@@ -20,8 +20,8 @@ const Signin = () => {
               Password <br></br>
               <input type='password' placeholder='Enter Password'></input>
             </label>
-            <button className='signinbutton'>Sign In</button>
-            <div className='signinbottom'>Don't have an account? <a href='#'>Sign up</a></div>
+            <Link to='/Dashboard'><button className='signinbutton'>Sign In</button></Link>
+            <div className='signinbottom'>Don't have an account? <Link to='/Signup'><button className='signinbutton'>Sign up</button></Link></div>
             
           </form>
         </div>
