@@ -1,16 +1,26 @@
-.signup{
+.signup-wrapper{
+  margin: 0 auto;
+  }
+  .signup{
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     width: 100%;
+    margin: 0 auto;
     height: 100vh;
+    max-width: 1440px;
   }
+
   .leftsignup{
-    
     grid-column: 1;
     background-color: white;
-    width: 50%;
-    height: 100vh;
+    max-width: 500px;
+    width: 60%;
+    /* height: 100vh; */
   }
+
   form{
     display: flex;
     flex-direction: column;
@@ -20,6 +30,7 @@
     width: 70%;
     padding: 2%;
     font-size: 17px;
+    
   }
   .signuptop{
     color: rgb(85, 85, 189);
@@ -101,8 +112,37 @@
   }
 
   .rightsignup img{
-    height: 700px;
-    width: 100%;
+    /* height: inherit; */
+    width: inherit;
+    /* height: 700px; */
+    width: 80%;
+    max-width: 100%;
   }
 
-  
+  .rightsignup{
+    height: 100%;
+    display: flex;
+    width: 39%;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+  }
+
+
+
+  @media screen and (max-width: 768px) {
+    .rightsignup{
+      display: none;
+    }
+    .leftsignup{
+      width: 100%;
+      max-width: 500px;
+    
+    }
+    form{
+      font-size: 1rem;
+    }
+    .signuptop{
+      font-size: 1.5rem;
+    }
+  }

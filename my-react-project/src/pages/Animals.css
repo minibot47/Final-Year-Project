@@ -72,7 +72,7 @@ select{
 input{
     height: 80%;
     width: 350px;
-    margin-right: 4%;
+    /* margin-right: 4%; */
 }
 
 .Animals table{

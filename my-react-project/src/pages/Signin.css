@@ -1,13 +1,24 @@
+.signin-wrapper{
+  margin: 0 auto;
+  }
+
 .signin{
-    display: flex;
-    background-color: white;
-    width: 100%;
-    height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+  max-width: 1440px;
   }
   .leftsignin{
-    background-color:white;
-    width: 50%;
-    height: 100vh;
+    grid-column: 1;
+    background-color: white;
+    max-width: 500px;
+    width: 60%;
+    /* height: 100vh; */
   }
   form{
     display: flex;
@@ -106,6 +117,39 @@
   }
 
   .rightsignin img{
-    height: 100vh;
-    width: 100%;
+  /* height: inherit; */
+  width: inherit;
+  /* height: 700px; */
+  width: 80%;
+  max-width: 100%;
+  }
+
+  .rightsignin{
+    height: 100%;
+    display: flex;
+    width: 39%;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+  }
+
+
+
+  
+  @media screen and (max-width: 768px) {
+    .rightsignin{
+      display: none;
+    }
+    .leftsignin{
+      width: 100%;
+      max-width: 500px;
+    
+    }
+    form{
+      font-size: 1rem;
+      width: 85%;
+    }
+    .signintop{
+      font-size: 1.5rem;
+    }
   }

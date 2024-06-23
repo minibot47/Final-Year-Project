@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Dashboard.css";
 import dashboardicon from "../images/dashboard.png";
@@ -18,6 +18,13 @@ import elipses from "../images/elipses vertical.png"
 
 const Dashboard = () => {
   const [view, setView] = useState('dashboard');
+  useEffect(() => {
+
+  sessionStorage.getItem('tokenObj')
+  console.log(sessionStorage.getItem('tokenObj'))git
+ 
+  }, []);
+
 
   return (
     <div className='Dashboard'>
