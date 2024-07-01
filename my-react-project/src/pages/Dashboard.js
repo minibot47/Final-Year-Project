@@ -13,17 +13,124 @@ import chart1 from "../images/chart2.png";
 import appointmenticon from '../images/appointment.png';
 import Animals from './Animals';
 import Appointments from "./Appointments.js";
-import Settings from './Settings.js';
-import elipses from "../images/elipses vertical.png"
+import Settings from './Settings.jsx';
+import elipses from "../images/elipses vertical.png";
+import axios from 'axios';
+import ActionButton from '../components/actioButton/ActionButton.jsx';
+import ViewLivestockModal from '../components/viewLivestockModal/ViewLivestockModal.jsx';
+import EditLivestockModal from '../components/editLivestock/EditLivestockModal.jsx';
+import AddLivestockModal from '../components/addlivestockmodal/AddLivestockModal.jsx';
 
 const Dashboard = () => {
-  const [view, setView] = useState('dashboard');
-  useEffect(() => {
+    const [view, setView] = useState('dashboard');
+  const [livestock, setLivestock] = useState([]);
+  const [animalData, setAnimalData] = useState([]);
+  const [dashboardData, setDashboardData] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  sessionStorage.getItem('tokenObj')
-  console.log(sessionStorage.getItem('tokenObj'))git
- 
-  }, []);
+   
+  const [isViewModalOpen, setIsViewModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [selectedLivestock, setSelectedLivestock] = useState(null);
+
+  const handleOpenViewModal = (livestock) => {
+    setSelectedLivestock(livestock);
+    setIsViewModalOpen(true);
+  };
+
+  const handleCloseViewModal = () => {
+    setIsViewModalOpen(false);
+    setSelectedLivestock(null);
+  };
+  const handleOpenEditModal = (livestock) => {
+    setSelectedLivestock(livestock);
+    setIsEditModalOpen(true);
+  };
+
+  const handleCloseEditModal = () => {
+    setIsEditModalOpen(false);
+    setSelectedLivestock(null);
+  };
+
+  const handleEditLivestock = (formData) => {
+    const updatedLivestock = livestock.map((item) =>
+      item.id === selectedLivestock.id
+        ? { ...item, ...Object.fromEntries(formData.entries()) }
+        : item
+    );
+    setLivestock(updatedLivestock);
+    handleCloseEditModal();
+  };
+
+  const handleDelete = async (id) => {
+    const data = JSON.parse(sessionStorage.getItem("tokenObj"));
+    // setLivestock(livestock.filter((item) => item.id !== id));
+    try {
+      const response = await axios.post(
+        "http://localhost/livestockbackend/animal/deleteanimal.php",
+        { userid: data.userid,
+          animalid: id
+
+         },
+        {
+          headers: {
+            AccessToken: data.accessToken,
+          },
+        }
+      );
+      console.log(data.accessToken, data.userid);
+      // console.log(response?.data?.animals[0].id);
+      
+      setAnimalData(response?.data?.animals);
+      console.log(animalData);
+    } catch (error) {
+      console.error("Error during sign in:", error);
+      // Handle error, e.g., show an error message to the user
+    }
+    
+  };
+  
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+  console.log(isModalOpen);
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    console.log("done");
+  };
+
+  const handleAddLivestock = (newLivestock) => {
+    setLivestock([...livestock, newLivestock]);
+  };
+
+   
+    const handleGetDashboardData = async () => {
+      const data = JSON.parse(sessionStorage.getItem("tokenObj"));
+      try {
+        const response = await axios.post(
+          "http://localhost/livestockbackend/dashboard.php",
+          { userid: data.userid },
+          {
+            headers: {
+              AccessToken: data.accessToken,
+            },
+          }
+        );
+        console.log(data.accessToken, data.userid);
+        console.log(response?.data);
+        setDashboardData(response?.data);
+        console.log(dashboardData);
+      } catch (error) {
+        console.error("Error during sign in:", error);
+        // Handle error, e.g., show an error message to the user
+      }
+    };
+
+    
+useEffect(() => {
+handleGetDashboardData()
+}, [])
 
 
   return (
@@ -78,14 +185,14 @@ const Dashboard = () => {
                   <div className='innerdashboardanimalcounttexts'>
                     <img src={dogpaw} alt='img'/>
                     <p>Total No of Animals</p>
-                    <span>10,000</span>
+                    <span> { dashboardData?.totalcount } </span>
                   </div>
                 </div>
                 <div className='innerdashboardanimalcount2'>
                   <div className='innerdashboardanimalcount2texts'>
                     <img src={dogpaw} alt='img'/>
                     <p>Species Distribution</p>
-                    <span>200</span>
+                    <span>{ dashboardData?.specieCount }</span>
                   </div>
                 </div>
               </div>
@@ -98,6 +205,22 @@ const Dashboard = () => {
                   <h2>Livestock</h2>
                   <button onClick={() => setView('animals')}>See all {'>'}</button>
                 </div>
+                <AddLivestockModal
+              open={isModalOpen}
+              handleClose={handleCloseModal}
+              handleAdd={handleAddLivestock}
+            />
+            <ViewLivestockModal
+              open={isViewModalOpen}
+              handleClose={handleCloseViewModal}
+              livestock={selectedLivestock}
+            />
+            <EditLivestockModal
+              open={isEditModalOpen}
+              handleClose={handleCloseEditModal}
+              handleEdit={handleEditLivestock}
+              livestock={selectedLivestock}
+            />
                 <table>
                   <thead>
                     <tr>
@@ -109,27 +232,21 @@ const Dashboard = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Cow</td>
-                      <td>Healthy</td>
-                      <td>04/12/2003 - 10pm</td>
-                      <td><img src={elipses} alt="elipses"/></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Pig</td>
-                      <td>Weak</td>
-                      <td>04/12/2003 - 10pm</td>
-                      <td><img src={elipses} alt="elipses"/></td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Goat</td>
-                      <td>Sick</td>
-                      <td>04/12/2003 - 10pm</td>
-                      <td><img src={elipses} alt="elipses"/></td>
-                    </tr>
+                  {dashboardData?.animals?.map((animal, index) => (
+            <tr key={index}>
+              <td>{animal?.id}</td>
+              <td>{animal?.specie}</td>
+              <td>{animal?.status}</td>
+              <td>{animal?.last_treatment}</td>
+              <td>
+                <ActionButton
+                  onView={() => handleOpenViewModal({animal})}
+                  onEdit={() => handleOpenEditModal({animal})}
+                      onDelete={() => handleDelete(animal?.animalid)}
+                />
+              </td>
+            </tr>
+          ))}
                   </tbody>
                 </table>
               </div>
