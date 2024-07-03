@@ -3,35 +3,32 @@ import { Link } from "react-router-dom";
 import "./Settings.css";
 import not from "../images/not.png";
 import profile from "../images/profile.png";
-import axios from'axios';
+import axios from "axios";
 const Settings = () => {
-  const [userProfile, setUserProfile] = useState(null)
-  const userData = async () =>{
-  const data = JSON.parse(sessionStorage.getItem('tokenObj'));
-  try {
-    const response = await axios.post(
-      "http://localhost/livestockbackend/updateprofile/getuserprofile.php",
-      {userid: data.userid},
-      {
-        headers: {
-          "AccessToken": data.accessToken,
-        },
-      }
-    );
-        console.log(response?.data?.userprofile);
-        setUserProfile(response?.data?.userprofile)
-  } catch (error) {
-    console.error("Error during sign in:", error);
-    // Handle error, e.g., show an error message to the user
-  }
-}
-// JSON.parse(data)
+  const [userProfile, setUserProfile] = useState(null);
+  const userData = async () => {
+    const data = JSON.parse(sessionStorage.getItem("tokenObj"));
+    try {
+      const response = await axios.post(
+        "http://localhost/livestockbackend/updateprofile/getuserprofile.php",
+        { userid: data.userid },
+        {
+          headers: {
+            AccessToken: data.accessToken,
+          },
+        }
+      );
+      setUserProfile(response?.data?.userprofile);
+    } catch (error) {
+      console.error("Error during sign in:", error);
+      // Handle error, e.g., show an error message to the user
+    }
+  };
+  // JSON.parse(data)
   useEffect(() => {
-         userData() 
-  
-      },
- [])
-console.log(userProfile);
+    userData();
+  }, []);
+  console.log(userProfile);
   return (
     <div className="Settings">
       <div className="innerrightAppointmentstop">
@@ -70,8 +67,8 @@ console.log(userProfile);
               <h3 className="username"> Name</h3>
             </div>
             <div className="user-profile-right">
-             <h3 className="name">{userProfile?.fullname}</h3>
-            </div> 
+              <h3 className="name">{userProfile?.fullname}</h3>
+            </div>
           </div>
           <div className="user-profile">
             <div className="user-profile-right">
@@ -79,8 +76,8 @@ console.log(userProfile);
               <h3 className="username"> Email</h3>
             </div>
             <div className="user-profile-right">
-             <h3 className="name">{userProfile?.email}</h3>
-            </div> 
+              <h3 className="name">{userProfile?.email}</h3>
+            </div>
           </div>
         </div>
       </div>

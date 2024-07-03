@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import "./Animals.css";
 import not from "../images/not.png";
 import profile from "../images/profile.png";
-import elipses from "../images/elipses vertical.png";
 import AddLivestockModal from "../components/addlivestockmodal/AddLivestockModal";
 import ViewLivestockModal from "../components/viewLivestockModal/ViewLivestockModal";
 import EditLivestockModal from "../components/editLivestock/EditLivestockModal";
@@ -52,6 +50,8 @@ const Animals = () => {
         : item
     );
     setLivestock(updatedLivestock);
+
+    handleGetAnimalData()
     handleCloseEditModal();
   };
 
@@ -61,37 +61,25 @@ const Animals = () => {
     try {
       const response = await axios.post(
         "http://localhost/livestockbackend/animal/deleteanimal.php",
-        { userid: data.userid,
-          animalid: id
-
-         },
+        { userid: data.userid, animalid: id },
         {
           headers: {
             AccessToken: data.accessToken,
           },
         }
       );
-      console.log(data.accessToken, data.userid);
-      // console.log(response?.data?.animals[0].id);
-      
-      setAnimalData(response?.data?.animals);
-      console.log(animalData);
     } catch (error) {
       console.error("Error during sign in:", error);
       // Handle error, e.g., show an error message to the user
     }
-    
   };
-  
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
-  console.log(isModalOpen);
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    console.log("done");
   };
 
   const handleAddLivestock = (newLivestock) => {
@@ -110,10 +98,7 @@ const Animals = () => {
           },
         }
       );
-      console.log(data.accessToken, data.userid);
-      console.log(response?.data?.animals[0].id);
       setAnimalData(response?.data?.animals);
-      console.log(animalData);
     } catch (error) {
       console.error("Error during sign in:", error);
       // Handle error, e.g., show an error message to the user
@@ -122,8 +107,6 @@ const Animals = () => {
   useEffect(() => {
     handleGetAnimalData();
   }, []);
-
-  console.log(animalData?.animalid);
 
   return (
     <div className="Animals">
@@ -194,7 +177,7 @@ const Animals = () => {
           </tr>
         </thead>
         <tbody>
-          {animalData.map((animal, index) => (
+          {animalData?.map((animal, index) => (
             <tr key={index}>
               <td>{animal?.id}</td>
               <td>{animal?.specie}</td>
@@ -202,9 +185,9 @@ const Animals = () => {
               <td>{animal?.last_treatment}</td>
               <td>
                 <ActionButton
-                  onView={() => handleOpenViewModal({animal})}
-                  onEdit={() => handleOpenEditModal({animal})}
-                      onDelete={() => handleDelete(animal?.animalid)}
+                  onView={() => handleOpenViewModal({ animal })}
+                  onEdit={() => handleOpenEditModal({ animal })}
+                  onDelete={() => handleDelete(animal?.animalid)}
                 />
               </td>
             </tr>

@@ -1,32 +1,32 @@
-.Settings{
-    width: 1150px;
-    margin-left: 3%;
+.Settings {
+  width: 1150px;
+  margin-left: 3%;
 }
 
-.user-info{
-    margin-top: 5rem;
-    max-width: 800px;
+.user-info {
+  margin-top: 5rem;
+  max-width: 800px;
 }
 
-.edit-profile{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.edit-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.edit-profile-right{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.user-profile{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.edit-profile-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.user-profile-right{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-profile-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

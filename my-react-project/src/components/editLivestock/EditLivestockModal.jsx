@@ -3,89 +3,64 @@ import './edit-livestock.css';
 import axios from 'axios';
 
 const EditLivestockModal = ({ open, handleClose, handleEdit, livestock }) => {
-    console.log(livestock);
-    const data = JSON.parse(sessionStorage.getItem("tokenObj"));
-
-    const [formValues, setFormValues] = useState({
+       const data = JSON.parse(sessionStorage.getItem("tokenObj"));
+       const animalid = livestock?.animal?.animalid;
+           const [formValues, setFormValues] = useState({
         id: data.userid,
-        animalId: livestock?.animal?.animalid,
-        specie: '',
+           specie: '',
         status: '',
         lastTreatmentDate: '',
         disease: '',
         bodyTemperature: '',
         imageUrl: '' 
     });
-console.log(formValues);
-    useEffect(() => {
-        if (livestock) {
-            setFormValues(livestock);
-        }
-    }, [livestock]);
-
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormValues({ ...formValues, [name]: value });
     };
-
-    const formData = new FormData();
-    formData.append('userid', formValues.id);
-    formData.append('animalid', formValues.animalId);
-    formData.append('specie', formValues.specie);
-    formData.append('status', formValues.status);
-    formData.append('last-treatment', formValues.last_treatment);
-    formData.append('disease', formValues.disease);
-    formData.append('body-temperature', formValues.bodyTemp);
-    // formData.append('imageUrl', formValues.imageUrl);
-    handleEdit(formData);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-       
-        handleClose();
-        console.log(formData);
-        console.log(formValues);
-
-            const data = JSON.parse(sessionStorage.getItem('tokenObj'));
-            try {
-              const response = await axios.post(
-                "http://localhost/livestockbackend/animal/editanimal.php",
-                formData,
-                {
-                  headers: {
-                    "AccessToken": data.accessToken,
-                  },
-                }
-              );
-                  console.log(response?.data);
+        const formData = new FormData();
+        formData.append('userid', formValues.id);
+        formData.append('animalid', animalid);
+        formData.append('specie', formValues.specie);
+        formData.append('status', formValues.status);
+        formData.append('last-treatment', formValues.lastTreatmentDate);
+        formData.append('disease', formValues.disease);
+        formData.append('body-temperature', formValues.bodyTemp);
+        // formData.append('imageUrl', formValues.imageUrl);
+        
+        const data = JSON.parse(sessionStorage.getItem('tokenObj'));
+        try {
+            const response = await axios.post(
+                    "http://localhost/livestockbackend/animal/editanimal.php",
+                    formData,
+                    {
+                        headers: {
+                            "AccessToken": data.accessToken,
+                            },
+                            }
+                            );
+                            // I WILL TOAST HERE
 
             } catch (error) {
               console.error("Error during sign in:", error);
               // Handle error, e.g., show an error message to the user
-            }
-          };
-
-    if (!open) return null;
-
-    return (
-        <div className="modal-overlay">
+              }
+              handleEdit(formData);
+              handleClose();
+            };
+            
+            
+          if (!open) return null;
+          return (
+              <div className="modal-overlay">
             <div className="modal-container">
                 <button className="close-button" onClick={handleClose}>×</button>
                 <h2>Edit Livestock</h2>
                 <form onSubmit={handleSubmit}>
                    
-                    {/* <div className="form-group">
-                        <label>ID</label>
-                        <input
-                            type="text"
-                            name="animalid"
-                            value={formValues.animalId}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div> */}
-                    <div className="form-group">
+                                      <div className="form-group">
                         <label>Specie</label>
                         <input
                             type="text"

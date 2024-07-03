@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Appointments.css";
@@ -14,9 +13,7 @@ import { ThreeDots } from "react-loader-spinner";
 
 const Appointments = () => {
   const [selectedDate, setSelectedDate] = useState(null);
-  console.log(selectedDate);
   const [reminder, setReminder] = useState("");
-  console.log(reminder);
   const [mode, setMode] = useState("");
   const [time, setTime] = useState("");
   const [loading, setLoading] = useState(false);
@@ -24,7 +21,6 @@ const Appointments = () => {
     setReminder(event.target.value);
   };
   const data = JSON.parse(sessionStorage.getItem("tokenObj"));
-
   const appointmentData = {
     id: data.userid,
     meetingMode: mode,
@@ -32,7 +28,6 @@ const Appointments = () => {
     time: time,
     reminder: reminder,
   };
-  console.log(appointmentData);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,16 +45,17 @@ const Appointments = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost/livestockbackend/appointment/addappointment.php",   formData,
+      const response = await axios.post(
+        "http://localhost/livestockbackend/appointment/addappointment.php",
+        formData,
         {
           headers: {
-            "AccessToken": data.accessToken,
+            AccessToken: data.accessToken,
           },
         }
       );
       setLoading(false);
       toast.success("Appointment booked successfully!");
-      console.log(response);
 
       // Reset form fields
       setSelectedDate(null);

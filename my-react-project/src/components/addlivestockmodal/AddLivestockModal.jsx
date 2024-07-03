@@ -1,11 +1,9 @@
-// src/components/AddLivestockModal.js
-
 import React, { useState } from "react";
 import "./addlivestock.css";
 import axios from "axios";
 
 const AddLivestockModal = ({ open, handleClose, handleAdd }) => {
-    const data = JSON.parse(sessionStorage.getItem("tokenObj"));
+  const data = JSON.parse(sessionStorage.getItem("tokenObj"));
   const [formValues, setFormValues] = useState({
     id: data.userid,
     specie: "",
@@ -14,10 +12,8 @@ const AddLivestockModal = ({ open, handleClose, handleAdd }) => {
     disease: "",
     bodyTemp: "",
   });
-console.log(data.userid);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    // const data = JSON.parse(sessionStorage.getItem('tokenObj'));
     setFormValues({ ...formValues, [name]: value });
   };
 
@@ -44,8 +40,6 @@ console.log(data.userid);
           },
         }
       );
-      console.log(response?.data);
-
       // Handle successful add animal here, e.g., redirect or show a success message
     } catch (error) {
       console.error("Error during sign in:", error);
@@ -63,7 +57,6 @@ console.log(data.userid);
         </button>
         <h2>Add Livestock</h2>
         <form onSubmit={handleSubmit}>
-       
           <div className="form-group">
             <label>Specie</label>
             <input
