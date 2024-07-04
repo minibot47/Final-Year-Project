@@ -91,7 +91,6 @@ const Dashboard = () => {
 
   const handleAddLivestock = (newLivestock) => {
     setLivestock([...livestock, newLivestock]);
-
     handleGetDashboardData();
   };
 

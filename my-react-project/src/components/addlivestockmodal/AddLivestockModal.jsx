@@ -27,9 +27,7 @@ const AddLivestockModal = ({ open, handleClose, handleAdd }) => {
     formData.append("disease", formValues.disease);
     formData.append("body-temperature", formValues.bodyTemp);
 
-    handleAdd(formData);
-    handleClose();
-
+  
     try {
       const response = await axios.post(
         "http://localhost/livestockbackend/animal/addanimal.php",
@@ -45,6 +43,9 @@ const AddLivestockModal = ({ open, handleClose, handleAdd }) => {
       console.error("Error during sign in:", error);
       // Handle error, e.g., show an error message to the user
     }
+    handleAdd(formData);
+    handleClose();
+
   };
 
   if (!open) return null;

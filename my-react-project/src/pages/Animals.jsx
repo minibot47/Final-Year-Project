@@ -44,14 +44,13 @@ const Animals = () => {
   };
 
   const handleEditLivestock = (formData) => {
-    const updatedLivestock = livestock.map((item) =>
-      item.id === selectedLivestock.id
-        ? { ...item, ...Object.fromEntries(formData.entries()) }
-        : item
-    );
-    setLivestock(updatedLivestock);
-
-    handleGetAnimalData()
+    // const updatedLivestock = livestock.map((item) =>
+    //   item.id === selectedLivestock.id
+    //     ? { ...item, ...Object.fromEntries(formData.entries()) }
+    //     : item
+    // );
+    // setLivestock(updatedLivestock);
+    handleGetAnimalData();
     handleCloseEditModal();
   };
 
@@ -72,6 +71,7 @@ const Animals = () => {
       console.error("Error during sign in:", error);
       // Handle error, e.g., show an error message to the user
     }
+    handleGetAnimalData();
   };
 
   const handleOpenModal = () => {
@@ -80,10 +80,6 @@ const Animals = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-  };
-
-  const handleAddLivestock = (newLivestock) => {
-    setLivestock([...livestock, newLivestock]);
   };
 
   const handleGetAnimalData = async () => {
@@ -104,6 +100,13 @@ const Animals = () => {
       // Handle error, e.g., show an error message to the user
     }
   };
+
+  const handleAddLivestock = (newLivestock) => {
+    setLivestock([...livestock, newLivestock]);
+    handleGetAnimalData();
+    handleCloseModal();
+  };
+
   useEffect(() => {
     handleGetAnimalData();
   }, []);
