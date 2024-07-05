@@ -9,27 +9,27 @@ const EditLivestockModal = ({ open, handleClose, handleEdit, livestock }) => {
   const [formValues, setFormValues] = useState({
     id: data.userid,
     specie: livestock?.animal?.specie || "",
-    status:  livestock?.animal?.status || "",
-    lastTreatmentDate:  livestock?.animal?.status || "",
-    disease:  livestock?.animal?.disease || "",
-    bodyTemperature:  livestock?.animal?.status || "",
+    status: livestock?.animal?.status || "",
+    lastTreatmentDate: livestock?.animal?.status || "",
+    disease: livestock?.animal?.disease || "",
+    bodyTemperature: livestock?.animal?.status || "",
     imageUrl: "",
   });
   console.log(formValues);
 
   useEffect(() => {
     if (livestock?.animal?.animalid) {
-        setFormValues({
-            id: data.userid,
-            specie: livestock.animal.specie || '',
-            status: livestock.animal.status || '',
-            lastTreatmentDate: livestock.animal.lastTreatmentDate || '',
-            disease: livestock.animal.disease || '',
-            bodyTemperature: livestock.animal.bodyTemperature || '',
-            imageUrl: livestock.animal.imageUrl || ''
-        });
+      setFormValues({
+        id: data.userid,
+        specie: livestock.animal.specie || '',
+        status: livestock.animal.status || '',
+        lastTreatmentDate: livestock.animal.lastTreatmentDate || '',
+        disease: livestock.animal.disease || '',
+        bodyTemperature: livestock.animal.bodyTemperature || '',
+        imageUrl: livestock.animal.imageUrl || ''
+      });
     }
-}, [livestock]);
+  }, [livestock]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
