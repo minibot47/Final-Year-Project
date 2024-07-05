@@ -112,7 +112,10 @@ const Dashboard = () => {
       // Handle error, e.g., show an error message to the user
     }
   };
+
+
   useEffect(() => {
+    console.log("red");
     handleGetDashboardData();
   }, []);
 
