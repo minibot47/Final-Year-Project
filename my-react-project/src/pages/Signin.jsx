@@ -31,6 +31,10 @@ const Signin = () => {
 
   const handleSignIn = async (e) => {
     e.preventDefault();
+    const data  ={}
+    data.userid= '1212';
+    // sessionStorage.setItem("tokenObj", JSON.stringify(response?.data));
+    sessionStorage.setItem("tokenObj", JSON.stringify(data));
     const errorMessage = validateForm();
     if (errorMessage) {
       toast.error(errorMessage);
@@ -49,7 +53,10 @@ const Signin = () => {
       );
       if (response?.data?.response === true) {
         toast.success("Signin successful!");
-        sessionStorage.setItem("tokenObj", JSON.stringify(response?.data));
+        const data  ={}
+        data.userid= '1212';
+        // sessionStorage.setItem("tokenObj", JSON.stringify(response?.data));
+        sessionStorage.setItem("tokenObj", JSON.stringify(data));
         navigate("/Dashboard");
       }
       // Handle successful sign up here, e.g., redirect or show a success message

@@ -63,6 +63,7 @@ const Dashboard = () => {
 
   const handleDelete = async (id) => {
     const data = JSON.parse(sessionStorage.getItem("tokenObj"));
+    
     // setLivestock(livestock.filter((item) => item.id !== id));
     try {
       const response = await axios.post(

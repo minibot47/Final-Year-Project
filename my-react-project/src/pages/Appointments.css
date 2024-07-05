@@ -171,19 +171,35 @@
   border: black solid 1px;
 }
 
-.modeofmeeting {
+.meeting-mode {
   width: 50%;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
 }
 
-.modeofmeeting button {
+.mode {
+  width: 250px;
+  height: 40px;
+  border-radius: transparent 5px;
+  font-size: 18px;
+  margin: 0 2px;
+}
+
+.mode .selected{
   width: 250px;
   height: 40px;
   border-radius: transparent 5px;
   font-size: 18px;
 }
+
+.mode {
+  width: 250px;
+  height: 40px;
+  border-radius: transparent 5px;
+  font-size: 18px;
+}
+
 
 .modeofmeeting button:hover {
   background-color: rgba(33, 150, 243, 1);

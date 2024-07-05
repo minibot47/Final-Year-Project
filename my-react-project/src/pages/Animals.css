@@ -126,5 +126,19 @@ input {
 }
 
 .add-btn-wrapper {
-  width: 20%;
+  width: 60%;
+}
+.add-btn-wrapper{
+  align-self: end;
+  margin-bottom: 20px;
+
+}
+
+.add-btn{
+  border: none;
+  font-size: 1rem;
+  color: #fff;
+  background-color: rgba(33, 150, 243, 1);
+  padding: 1rem 1.2rem;
+  text-transform: capitalize;
 }

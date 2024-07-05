@@ -137,15 +137,7 @@ const Animals = () => {
                 />
               </div>
             </div>
-            <div className="add-btn-wrapper">
-              <button
-                onClick={handleOpenModal}
-                type="button"
-                className="add-btn"
-              >
-                add
-              </button>
-            </div>
+
             <AddLivestockModal
               open={isModalOpen}
               handleClose={handleCloseModal}
@@ -162,9 +154,19 @@ const Animals = () => {
               handleEdit={handleEditLivestock}
               livestock={selectedLivestock}
             />
+           
           </div>
         </div>
         <div className="Animalstopright">
+        <div className="add-btn-wrapper">
+              <button
+                onClick={handleOpenModal}
+                type="button"
+                className="add-btn"
+              >
+               + add
+              </button>
+            </div>
           <img src={not} alt="notifications" />
           <img src={profile} alt="profile" />
         </div>
