@@ -4,7 +4,7 @@ import axios from "axios";
 
 const AddLivestockModal = ({ open, handleClose, handleAdd }) => {
   const data = JSON.parse(sessionStorage.getItem("tokenObj"));
-  
+
   const [formValues, setFormValues] = useState({
     id: data.userid,
     specie: "",
@@ -28,7 +28,7 @@ const AddLivestockModal = ({ open, handleClose, handleAdd }) => {
     formData.append("disease", formValues.disease);
     formData.append("body-temperature", formValues.bodyTemp);
 
-  
+
     try {
       const response = await axios.post(
         "http://localhost/livestockbackend/animal/addanimal.php",
@@ -69,7 +69,7 @@ const AddLivestockModal = ({ open, handleClose, handleAdd }) => {
               required
             />
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Status</label>
             <div className="status-options">
               <label>
@@ -103,7 +103,7 @@ const AddLivestockModal = ({ open, handleClose, handleAdd }) => {
                 Weak
               </label>
             </div>
-          </div>
+          </div> */}
           <div className="form-group">
             <label>Date of Last Treatment</label>
             <input
@@ -121,6 +121,17 @@ const AddLivestockModal = ({ open, handleClose, handleAdd }) => {
               name="disease"
               value={formValues.disease}
               onChange={handleInputChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Body Temperature</label>
+            <input
+              type="number"
+              name="bodyTemp"
+              value={formValues.bodyTemp}
+              onChange={handleInputChange}
+              required
             />
           </div>
           <button type="submit" className="add-button">

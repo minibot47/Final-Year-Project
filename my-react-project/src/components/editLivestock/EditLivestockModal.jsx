@@ -12,7 +12,7 @@ const EditLivestockModal = ({ open, handleClose, handleEdit, livestock }) => {
     status: livestock?.animal?.status || "",
     lastTreatmentDate: livestock?.animal?.status || "",
     disease: livestock?.animal?.disease || "",
-    bodyTemperature: livestock?.animal?.status || "",
+    bodyTemperature: livestock?.animal?.temperature || "",
     imageUrl: "",
   });
   console.log(formValues);
@@ -25,7 +25,7 @@ const EditLivestockModal = ({ open, handleClose, handleEdit, livestock }) => {
         status: livestock.animal.status || '',
         lastTreatmentDate: livestock.animal.lastTreatmentDate || '',
         disease: livestock.animal.disease || '',
-        bodyTemperature: livestock.animal.bodyTemperature || '',
+        bodyTemperature: livestock.animal.temperature || '',
         imageUrl: livestock.animal.imageUrl || ''
       });
     }
@@ -44,7 +44,7 @@ const EditLivestockModal = ({ open, handleClose, handleEdit, livestock }) => {
     formData.append("status", formValues.status);
     formData.append("last-treatment", formValues.lastTreatmentDate);
     formData.append("disease", formValues.disease);
-    formData.append("body-temperature", formValues.bodyTemp);
+    formData.append("body-temperature", formValues.bodyTemperature);
 
     // const data = JSON.parse(sessionStorage.getItem("tokenObj"));
     try {

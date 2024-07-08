@@ -112,7 +112,7 @@ const Dashboard = () => {
       // Handle error, e.g., show an error message to the user
     }
   };
-
+  console.log(dashboardData)
 
   useEffect(() => {
     console.log("red");
@@ -219,16 +219,18 @@ const Dashboard = () => {
                       <th>ID</th>
                       <th>Specie</th>
                       <th>Status</th>
+                      <th>Body Temperature</th>
                       <th>Last Treatment</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {dashboardData?.animals?.map((animal, index) => (
+                    {dashboardData?.animals?.slice(0, 3).map((animal, index) => (
                       <tr key={index}>
-                        <td>{animal?.id}</td>
+                        <td>{index + 1}</td>
                         <td>{animal?.specie}</td>
                         <td>{animal?.status}</td>
+                        <td>{animal?.temperature}°C</td>
                         <td>{animal?.last_treatment}</td>
                         <td>
                           <ActionButton
