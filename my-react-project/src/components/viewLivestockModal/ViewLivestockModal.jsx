@@ -19,7 +19,7 @@ const ViewLivestockModal = ({ open, handleClose, livestock }) => {
             Status: <span>{livestock.animal?.status}</span>
           </div>
           <div>Disease: {livestock.animal?.disease}</div>
-          <div>Body Temperature: {livestock?.bodyTemp}°C</div>
+          <div>Body Temperature: {livestock?.animal?.temperature}°C</div>
         </div>
         <button className="info-button">Disease Information</button>
       </div>

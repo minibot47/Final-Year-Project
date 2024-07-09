@@ -28,7 +28,6 @@ const Settings = () => {
   useEffect(() => {
     userData();
   }, []);
-  console.log(userProfile);
   return (
     <div className="Settings">
       <div className="innerrightAppointmentstop">

@@ -5,31 +5,29 @@ import axios from "axios";
 const EditLivestockModal = ({ open, handleClose, handleEdit, livestock }) => {
   const data = JSON.parse(sessionStorage.getItem("tokenObj"));
   const animalid = livestock?.animal?.animalid;
-  console.log(livestock?.animal);
   const [formValues, setFormValues] = useState({
     id: data.userid,
     specie: livestock?.animal?.specie || "",
-    status:  livestock?.animal?.status || "",
-    lastTreatmentDate:  livestock?.animal?.status || "",
-    disease:  livestock?.animal?.disease || "",
-    bodyTemperature:  livestock?.animal?.status || "",
+    status: livestock?.animal?.status || "",
+    lastTreatmentDate: livestock?.animal?.status || "",
+    disease: livestock?.animal?.disease || "",
+    bodyTemperature: livestock?.animal?.temperature || "",
     imageUrl: "",
   });
-  console.log(formValues);
 
   useEffect(() => {
     if (livestock?.animal?.animalid) {
-        setFormValues({
-            id: data.userid,
-            specie: livestock.animal.specie || '',
-            status: livestock.animal.status || '',
-            lastTreatmentDate: livestock.animal.lastTreatmentDate || '',
-            disease: livestock.animal.disease || '',
-            bodyTemperature: livestock.animal.bodyTemperature || '',
-            imageUrl: livestock.animal.imageUrl || ''
-        });
+      setFormValues({
+        id: data.userid,
+        specie: livestock.animal.specie || '',
+        status: livestock.animal.status || '',
+        lastTreatmentDate: livestock.animal.lastTreatmentDate || '',
+        disease: livestock.animal.disease || '',
+        bodyTemperature: livestock.animal.temperature || '',
+        imageUrl: livestock.animal.imageUrl || ''
+      });
     }
-}, [livestock]);
+  }, [livestock]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -44,7 +42,7 @@ const EditLivestockModal = ({ open, handleClose, handleEdit, livestock }) => {
     formData.append("status", formValues.status);
     formData.append("last-treatment", formValues.lastTreatmentDate);
     formData.append("disease", formValues.disease);
-    formData.append("body-temperature", formValues.bodyTemp);
+    formData.append("body-temperature", formValues.bodyTemperature);
 
     // const data = JSON.parse(sessionStorage.getItem("tokenObj"));
     try {

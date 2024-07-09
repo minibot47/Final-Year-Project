@@ -109,7 +109,6 @@ const Animals = () => {
 
   useEffect(() => {
     handleGetAnimalData();
-    console.log("fedd" )
   }, []);
 
   return (
@@ -155,19 +154,19 @@ const Animals = () => {
               handleEdit={handleEditLivestock}
               livestock={selectedLivestock}
             />
-           
+
           </div>
         </div>
         <div className="Animalstopright">
-        <div className="add-btn-wrapper">
-              <button
-                onClick={handleOpenModal}
-                type="button"
-                className="add-btn"
-              >
-               + add
-              </button>
-            </div>
+          <div className="add-btn-wrapper">
+            <button
+              onClick={handleOpenModal}
+              type="button"
+              className="add-btn"
+            >
+              + add
+            </button>
+          </div>
           <img src={not} alt="notifications" />
           <img src={profile} alt="profile" />
         </div>
@@ -178,6 +177,7 @@ const Animals = () => {
             <th>ID</th>
             <th>Specie</th>
             <th>Status</th>
+            <th>Body Temperature</th>
             <th>Last Treatment</th>
             <th>Action</th>
           </tr>
@@ -185,9 +185,10 @@ const Animals = () => {
         <tbody>
           {animalData?.map((animal, index) => (
             <tr key={index}>
-              <td>{animal?.id}</td>
+              <td>{index + 1}</td>
               <td>{animal?.specie}</td>
               <td>{animal?.status}</td>
+              <td>{animal?.temperature}°C</td>
               <td>{animal?.last_treatment}</td>
               <td>
                 <ActionButton
