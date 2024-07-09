@@ -261,9 +261,9 @@ const Dashboard = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {dashboardData?.animals?.map((animal, index) => (
+                    {dashboardData?.animals?.slice(0, 3).map((animal, index) => (
                       <tr key={index}>
-                        <td>{animal?.id}</td>
+                        <td>{index + 1}</td>
                         <td>{animal?.specie}</td>
                         <td>{animal?.status}</td>
                         <td>{animal?.last_treatment}</td>
