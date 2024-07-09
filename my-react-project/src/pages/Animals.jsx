@@ -109,7 +109,6 @@ const Animals = () => {
 
   useEffect(() => {
     handleGetAnimalData();
-    console.log("fedd")
   }, []);
 
   return (

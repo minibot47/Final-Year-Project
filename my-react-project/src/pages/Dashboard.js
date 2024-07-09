@@ -26,10 +26,65 @@ const Dashboard = () => {
   const [animalData, setAnimalData] = useState([]);
   const [dashboardData, setDashboardData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedLivestock, setSelectedLivestock] = useState(null);
+
+  // Function to fetch dashboard data
+  const fetchDashboardData = async () => {
+    const data = JSON.parse(sessionStorage.getItem("tokenObj"));
+    try {
+      const response = await axios.post(
+        "http://localhost/livestockbackend/dashboard.php",
+        { userid: data.userid },
+        {
+          headers: {
+            AccessToken: data.accessToken,
+          },
+        }
+      );
+      setDashboardData(response?.data);
+    } catch (error) {
+      console.error("Error during fetching dashboard data:", error);
+    }
+  };
+
+  // Function to fetch animal data
+  const fetchAnimalData = async () => {
+    const data = JSON.parse(sessionStorage.getItem("tokenObj"));
+    try {
+      const response = await axios.post(
+        "http://localhost/livestockbackend/animal/getanimals.php",
+        { userid: data.userid },
+        {
+          headers: {
+            AccessToken: data.accessToken,
+          },
+        }
+      );
+      setAnimalData(response?.data?.animals);
+    } catch (error) {
+      console.error("Error during fetching animal data:", error);
+    }
+  };
+
+  // Function to handle view change and fetch data accordingly
+  const handleViewChange = (view) => {
+    setView(view);
+    if (view === "dashboard") {
+      fetchDashboardData();
+    } else if (view === "animals") {
+      fetchAnimalData();
+    } else if (view === "anppointments") {
+      fetchAnimalData();
+    } else if (view === "settings") {
+      fetchAnimalData();
+    }
+  };
+
+  useEffect(() => {
+    handleViewChange(view);
+  }, [view]);
 
   const handleOpenViewModal = (livestock) => {
     setSelectedLivestock(livestock);
@@ -40,6 +95,7 @@ const Dashboard = () => {
     setIsViewModalOpen(false);
     setSelectedLivestock(null);
   };
+
   const handleOpenEditModal = (livestock) => {
     setSelectedLivestock(livestock);
     setIsEditModalOpen(true);
@@ -57,13 +113,12 @@ const Dashboard = () => {
         : item
     );
     setLivestock(updatedLivestock);
-    handleGetDashboardData();
+    fetchDashboardData();
     handleCloseEditModal();
   };
 
   const handleDelete = async (id) => {
     const data = JSON.parse(sessionStorage.getItem("tokenObj"));
-    // setLivestock(livestock.filter((item) => item.id !== id));
     try {
       const response = await axios.post(
         "http://localhost/livestockbackend/animal/deleteanimal.php",
@@ -76,48 +131,23 @@ const Dashboard = () => {
       );
       setAnimalData(response?.data?.animals);
     } catch (error) {
-      console.error("Error during sign in:", error);
-      // Handle error, e.g., show an error message to the user
+      console.error("Error during delete:", error);
     }
-    handleGetDashboardData();
+    fetchDashboardData();
   };
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
 
   const handleAddLivestock = (newLivestock) => {
     setLivestock([...livestock, newLivestock]);
-    handleGetDashboardData();
+    fetchDashboardData();
   };
-
-  const handleGetDashboardData = async () => {
-    const data = JSON.parse(sessionStorage.getItem("tokenObj"));
-    try {
-      const response = await axios.post(
-        "http://localhost/livestockbackend/dashboard.php",
-        { userid: data.userid },
-        {
-          headers: {
-            AccessToken: data.accessToken,
-          },
-        }
-      );
-      setDashboardData(response?.data);
-    } catch (error) {
-      console.error("Error during sign in:", error);
-      // Handle error, e.g., show an error message to the user
-    }
-  };
-  console.log(dashboardData)
-
-  useEffect(() => {
-    console.log("red");
-    handleGetDashboardData();
-  }, []);
 
   return (
     <div className="Dashboard">
@@ -128,21 +158,27 @@ const Dashboard = () => {
             <div className="leftdashboardbuttons">
               <label>
                 <img src={dashboardicon} alt="img" />
-                <button onClick={() => setView("dashboard")}>Dashboard</button>
+                <button onClick={() => handleViewChange("dashboard")}>
+                  Dashboard
+                </button>
               </label>
               <label>
                 <img src={animalicon} alt="img" />
-                <button onClick={() => setView("animals")}>Animals</button>
+                <button onClick={() => handleViewChange("animals")}>
+                  Animals
+                </button>
               </label>
               <label>
                 <img src={appointmenticon} alt="img" />
-                <button onClick={() => setView("appointments")}>
+                <button onClick={() => handleViewChange("appointments")}>
                   Appointments
                 </button>
               </label>
               <label>
                 <img src={settingicon} alt="img" />
-                <button onClick={() => setView("settings")}>Settings</button>
+                <button onClick={() => handleViewChange("settings")}>
+                  Settings
+                </button>
               </label>
             </div>
           </div>
@@ -161,7 +197,8 @@ const Dashboard = () => {
               <div className="innerrightdashboardtop">
                 <div className="dashboardtopleft">
                   <h2 className="dashboardpage">
-                    Home {">"} <span className="bluedashboard"> Dashboard</span>
+                    Home {">"}{" "}
+                    <span className="bluedashboard"> Dashboard</span>
                   </h2>
                   <h1 className="dashboardpagetop">Dashboard</h1>
                 </div>
@@ -193,7 +230,7 @@ const Dashboard = () => {
               <div className="Animalcharttable">
                 <div className="Animalcharttable-top">
                   <h2>Livestock</h2>
-                  <button onClick={() => setView("animals")}>
+                  <button onClick={() => handleViewChange("animals")}>
                     See all {">"}
                   </button>
                 </div>
@@ -219,23 +256,21 @@ const Dashboard = () => {
                       <th>ID</th>
                       <th>Specie</th>
                       <th>Status</th>
-                      <th>Body Temperature</th>
                       <th>Last Treatment</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {dashboardData?.animals?.slice(0, 3).map((animal, index) => (
+                    {dashboardData?.animals?.map((animal, index) => (
                       <tr key={index}>
-                        <td>{index + 1}</td>
+                        <td>{animal?.id}</td>
                         <td>{animal?.specie}</td>
                         <td>{animal?.status}</td>
-                        <td>{animal?.temperature}°C</td>
                         <td>{animal?.last_treatment}</td>
                         <td>
                           <ActionButton
-                            onView={() => handleOpenViewModal({ animal })}
-                            onEdit={() => handleOpenEditModal({ animal })}
+                            onView={() => handleOpenViewModal(animal)}
+                            onEdit={() => handleOpenEditModal(animal)}
                             onDelete={() => handleDelete(animal?.animalid)}
                           />
                         </td>

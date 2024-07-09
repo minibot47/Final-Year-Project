@@ -5,7 +5,6 @@ import axios from "axios";
 const EditLivestockModal = ({ open, handleClose, handleEdit, livestock }) => {
   const data = JSON.parse(sessionStorage.getItem("tokenObj"));
   const animalid = livestock?.animal?.animalid;
-  console.log(livestock?.animal);
   const [formValues, setFormValues] = useState({
     id: data.userid,
     specie: livestock?.animal?.specie || "",
@@ -15,7 +14,6 @@ const EditLivestockModal = ({ open, handleClose, handleEdit, livestock }) => {
     bodyTemperature: livestock?.animal?.temperature || "",
     imageUrl: "",
   });
-  console.log(formValues);
 
   useEffect(() => {
     if (livestock?.animal?.animalid) {
