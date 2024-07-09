@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Signin from "./pages/Signin";
+import Landing from "./pages/Landing"
 import Signup from "./pages/Signup";
 import { ToastProvider } from "./context/toastContext";
 import { ToastContainer } from 'react-toastify';
@@ -14,9 +15,10 @@ function App() {
         <ToastProvider>
         <ToastContainer />
           <Routes>
+            <Route path="/" element={<Landing/>} />
             <Route path="/Signin" element={<Signin />} />
-            <Route path="/" element={<Signup />} />
-            <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/Dashboard" element={<Dashboard/>} />
           </Routes>
         </ToastProvider>
       </BrowserRouter>
