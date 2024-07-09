@@ -10,7 +10,7 @@ const OTPModal = ({ isOpen, onClose, onVerifySuccess }) => {
   const [loading, setLoading] = useState(false);
   const [timer, setTimer] = useState(180); // 3 minutes
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [otpLoading, setOtpLoading] = useState(false);
+
   useEffect(() => {
     let interval;
     if (isOpen && timer > 0) {
@@ -23,6 +23,12 @@ const OTPModal = ({ isOpen, onClose, onVerifySuccess }) => {
     return () => clearInterval(interval);
   }, [isOpen, timer]);
 
+  useEffect(() => {
+    if (!isOpen) {
+      setTimer(180); // Reset the timer when modal is closed
+    }
+  }, [isOpen]);
+
   const handleChange = (element, index) => {
     if (isNaN(element.value)) return false;
     setOtp([...otp.map((d, idx) => (idx === index ? element.value : d))]);
@@ -30,8 +36,9 @@ const OTPModal = ({ isOpen, onClose, onVerifySuccess }) => {
       element.nextSibling.focus();
     }
   };
+
   const validateVerify = () => {
-    if (!otp) return "Otp is Required";
+    if (!otp.join("").trim()) return "OTP is Required";
     return null;
   };
 
@@ -42,7 +49,7 @@ const OTPModal = ({ isOpen, onClose, onVerifySuccess }) => {
       toast.error(errorMessage);
       return;
     }
-    setOtpLoading(true);
+    setLoading(true);
     try {
       const userId = sessionStorage.getItem("userData");
       console.log(userId);
@@ -70,8 +77,6 @@ const OTPModal = ({ isOpen, onClose, onVerifySuccess }) => {
       toast.error("Failed to verify OTP. Please try again.");
     }
   };
-
-  // WHEN THER IS ROUTE TO RESEND OTP
 
   const handleResend = async () => {
     setLoading(true);
@@ -101,7 +106,7 @@ const OTPModal = ({ isOpen, onClose, onVerifySuccess }) => {
               &times;
             </button>
             <h2>OTP Verification</h2>
-            <p>Please Enter the 6-digit code sent to your email</p>
+            <p>Please Enter the 7-digit code sent to your email</p>
             <div className="otp-inputs">
               {otp.map((data, index) => (
                 <input
