@@ -54,7 +54,7 @@ const Dashboard = () => {
     const data = JSON.parse(sessionStorage.getItem("tokenObj"));
     try {
       const response = await axios.post(
-        "http://localhost/livestockbackend/animal/getanimals.php",
+        "http://localhost/livestockbackend/animal/animals.php",
         { userid: data.userid },
         {
           headers: {

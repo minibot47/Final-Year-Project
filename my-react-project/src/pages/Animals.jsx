@@ -17,6 +17,11 @@ const Animals = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [livestock, setLivestock] = useState([]);
   const [animalData, setAnimalData] = useState([]);
+  const [healthStatus, setHealthStatus] = useState('');
+
+  const handleFilterAnimalData = (event) => {
+    setHealthStatus(event.target.value);
+  };
 
   //edit view and delete code
 
@@ -87,7 +92,7 @@ const Animals = () => {
     try {
       const response = await axios.post(
         "http://localhost/livestockbackend/animal/animals.php",
-        { userid: data.userid },
+        { userid: data.userid, status: healthStatus },
         {
           headers: {
             AccessToken: data.accessToken,
@@ -95,6 +100,7 @@ const Animals = () => {
         }
       );
       setAnimalData(response?.data?.animals);
+      console.log(response);
     } catch (error) {
       console.error("Error during sign in:", error);
       // Handle error, e.g., show an error message to the user
@@ -109,7 +115,7 @@ const Animals = () => {
 
   useEffect(() => {
     handleGetAnimalData();
-  }, []);
+  }, [healthStatus]);
 
   return (
     <div className="Animals">
@@ -121,12 +127,11 @@ const Animals = () => {
           <div className="animalhealthtop">
             <h1 className="Animalspagetop">Animals</h1>
             <div className="animalhealth">
-              <select id="Health-Status">
+              <select id="Health-Status" onChange={handleFilterAnimalData}>
                 <option value="">Health Status</option>
                 <option value="all">All</option>
                 <option value="healthy">Healthy</option>
                 <option value="sick">Sick</option>
-                <option value="weak">Weak</option>
               </select>
               <div className="Animalsearchbar">
                 <input
