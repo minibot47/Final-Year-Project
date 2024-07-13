@@ -20,6 +20,7 @@ const Appointments = () => {
   const handleReminderChange = (event) => {
     setReminder(event.target.value);
   };
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const data = JSON.parse(sessionStorage.getItem("tokenObj"));
   const appointmentData = {
     id: data.userid,
@@ -42,15 +43,16 @@ const Appointments = () => {
     formData.append("time", appointmentData.time);
     formData.append("reminder", appointmentData.reminder);
 
+
     setLoading(true);
 
     try {
       const response = await axios.post(
-        "http://localhost/livestockbackend/appointment/addappointment.php",
+        `${baseUrl}/appointment/addappointment.php`,
         formData,
         {
           headers: {
-            AccessToken: data.accessToken,
+            Accesstoken: data.accessToken,
           },
         }
       );

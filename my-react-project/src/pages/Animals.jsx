@@ -9,6 +9,7 @@ import ActionButton from "../components/actioButton/ActionButton";
 import axios from "axios";
 
 const Animals = () => {
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const [searchTerm, setSearchTerm] = useState("");
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
@@ -18,7 +19,6 @@ const Animals = () => {
   const [livestock, setLivestock] = useState([]);
   const [animalData, setAnimalData] = useState([]);
   const [healthStatus, setHealthStatus] = useState('');
-
   const handleFilterAnimalData = (event) => {
     setHealthStatus(event.target.value);
   };
@@ -64,11 +64,11 @@ const Animals = () => {
     // setLivestock(livestock.filter((item) => item.id !== id));
     try {
       const response = await axios.post(
-        "http://localhost/livestockbackend/animal/deleteanimal.php",
+        `${baseUrl}/animal/deleteanimal.php`,
         { userid: data.userid, animalid: id },
         {
           headers: {
-            AccessToken: data.accessToken,
+            Accesstoken: data.accessToken,
           },
         }
       );
@@ -91,11 +91,11 @@ const Animals = () => {
     const data = JSON.parse(sessionStorage.getItem("tokenObj"));
     try {
       const response = await axios.post(
-        "http://localhost/livestockbackend/animal/animals.php",
+        `${baseUrl}/animal/animals.php`,
         { userid: data.userid, status: healthStatus },
         {
           headers: {
-            AccessToken: data.accessToken,
+            Accesstoken: data.accessToken,
           },
         }
       );
@@ -115,7 +115,7 @@ const Animals = () => {
 
   useEffect(() => {
     handleGetAnimalData();
-  }, [healthStatus]);
+  }, [healthStatus, baseUrl]);
 
   return (
     <div className="Animals">
@@ -128,7 +128,7 @@ const Animals = () => {
             <h1 className="Animalspagetop">Animals</h1>
             <div className="animalhealth">
               <select id="Health-Status" onChange={handleFilterAnimalData}>
-                <option value="">Health Status</option>
+                <option value="all">Health Status</option>
                 <option value="all">All</option>
                 <option value="healthy">Healthy</option>
                 <option value="sick">Sick</option>

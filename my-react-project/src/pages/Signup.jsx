@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import dog from "../images/Dog.png";
-import {  toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Signup.css";
 import { ThreeDots } from "react-loader-spinner";
@@ -12,6 +12,7 @@ const Signup = () => {
   const navigate = useNavigate();
   const [showOTPModal, setShowOTPModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const [signUpData, setSignUpData] = useState({
     fullname: "",
     email: "",
@@ -53,7 +54,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost/livestockbackend/authenticate/register_user.php",
+        `${baseUrl}/authenticate/register_user.php`,
         formDataObj,
         {
           headers: {

@@ -14,6 +14,7 @@ const Signin = () => {
     password: "",
   });
   const [loading, setLoading] = useState(false);
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const handleChange = (e) => {
     const { name, value } = e.target;
     setSignInData((prevState) => ({
@@ -39,7 +40,7 @@ const Signin = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost/livestockbackend/authenticate/login_user.php",
+        `${baseUrl}/authenticate/login_user.php`,
         signInData,
         {
           headers: {

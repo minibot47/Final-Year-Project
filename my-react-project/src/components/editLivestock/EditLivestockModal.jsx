@@ -5,6 +5,7 @@ import axios from "axios";
 const EditLivestockModal = ({ open, handleClose, handleEdit, livestock }) => {
   const data = JSON.parse(sessionStorage.getItem("tokenObj"));
   const animalid = livestock?.animal?.animalid;
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const [formValues, setFormValues] = useState({
     id: data.userid,
     specie: livestock?.animal?.specie || "",
@@ -47,11 +48,11 @@ const EditLivestockModal = ({ open, handleClose, handleEdit, livestock }) => {
     // const data = JSON.parse(sessionStorage.getItem("tokenObj"));
     try {
       const response = await axios.post(
-        "http://localhost/livestockbackend/animal/editanimal.php",
+        `${baseUrl}/animal/editanimal.php`,
         formData,
         {
           headers: {
-            AccessToken: data.accessToken,
+            Accesstoken: data.accessToken,
           },
         }
       );
