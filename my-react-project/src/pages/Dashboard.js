@@ -29,17 +29,18 @@ const Dashboard = () => {
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedLivestock, setSelectedLivestock] = useState(null);
+  const baseUrl = process.env.REACT_APP_BASE_URL;
 
   // Function to fetch dashboard data
   const fetchDashboardData = async () => {
     const data = JSON.parse(sessionStorage.getItem("tokenObj"));
     try {
       const response = await axios.post(
-        "http://localhost/livestockbackend/dashboard.php",
+        `${baseUrl}/dashboard.php`,
         { userid: data.userid },
         {
           headers: {
-            AccessToken: data.accessToken,
+            Accesstoken: data.accessToken,
           },
         }
       );
@@ -54,11 +55,11 @@ const Dashboard = () => {
     const data = JSON.parse(sessionStorage.getItem("tokenObj"));
     try {
       const response = await axios.post(
-        "http://localhost/livestockbackend/animal/animals.php",
+        `${baseUrl}/animal/animals.php`,
         { userid: data.userid },
         {
           headers: {
-            AccessToken: data.accessToken,
+            Accesstoken: data.accessToken,
           },
         }
       );
@@ -85,6 +86,11 @@ const Dashboard = () => {
   useEffect(() => {
     handleViewChange(view);
   }, [view]);
+
+  useEffect(() => {
+    fetchAnimalData();
+    fetchDashboardData();
+  }, [baseUrl])
 
   const handleOpenViewModal = (livestock) => {
     setSelectedLivestock(livestock);
@@ -121,11 +127,11 @@ const Dashboard = () => {
     const data = JSON.parse(sessionStorage.getItem("tokenObj"));
     try {
       const response = await axios.post(
-        "http://localhost/livestockbackend/animal/deleteanimal.php",
+        `${baseUrl}/animal/deleteanimal.php`,
         { userid: data.userid, animalid: id },
         {
           headers: {
-            AccessToken: data.accessToken,
+            Accesstoken: data.accessToken,
           },
         }
       );

@@ -10,6 +10,7 @@ const OTPModal = ({ isOpen, onClose, onVerifySuccess }) => {
   const [loading, setLoading] = useState(false);
   const [timer, setTimer] = useState(180); // 3 minutes
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const baseUrl = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     let interval;
@@ -58,7 +59,7 @@ const OTPModal = ({ isOpen, onClose, onVerifySuccess }) => {
         code: otp.join(""),
       });
       const response = await axios.post(
-        "http://localhost/livestockbackend/authenticate/verify_user.php",
+        `${baseUrl}/authenticate/verify_user.php`,
         {
           userid: userId,
           code: otp.join(""),

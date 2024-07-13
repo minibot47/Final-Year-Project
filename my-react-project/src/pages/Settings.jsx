@@ -6,15 +6,16 @@ import profile from "../images/profile.png";
 import axios from "axios";
 const Settings = () => {
   const [userProfile, setUserProfile] = useState(null);
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const userData = async () => {
     const data = JSON.parse(sessionStorage.getItem("tokenObj"));
     try {
       const response = await axios.post(
-        "http://localhost/livestockbackend/updateprofile/getuserprofile.php",
+        `${baseUrl}/updateprofile/getuserprofile.php`,
         { userid: data.userid },
         {
           headers: {
-            AccessToken: data.accessToken,
+            Accesstoken: data.accessToken,
           },
         }
       );
@@ -27,7 +28,7 @@ const Settings = () => {
   // JSON.parse(data)
   useEffect(() => {
     userData();
-  }, []);
+  }, [baseUrl]);
   return (
     <div className="Settings">
       <div className="innerrightAppointmentstop">

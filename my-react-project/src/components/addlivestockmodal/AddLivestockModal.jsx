@@ -3,6 +3,7 @@ import "./addlivestock.css";
 import axios from "axios";
 
 const AddLivestockModal = ({ open, handleClose, handleAdd }) => {
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const data = JSON.parse(sessionStorage.getItem("tokenObj"));
 
   const [formValues, setFormValues] = useState({
@@ -31,11 +32,11 @@ const AddLivestockModal = ({ open, handleClose, handleAdd }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost/livestockbackend/animal/addanimal.php",
+        `${baseUrl}/animal/addanimal.php`,
         formData,
         {
           headers: {
-            AccessToken: data.accessToken,
+            Accesstoken: data.accessToken,
           },
         }
       );
