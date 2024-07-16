@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Animals from "./pages/Animals";
 import Settings from "./pages/Settings";
 import Appointments from "./pages/Appointments";
+import UpdataProfile from "./pages/UpdataProfile";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/Dashboard" element={<Dashboard />} />
             <Route path="/Dashboard/animals" element={<Animals />} />
             <Route path="/Dashboard/settings" element={<Settings />} />
+            <Route path="/Dashboard/settings/updateprofile" element={<UpdataProfile />} />
             <Route path="/Dashboard/appointment" element={<Appointments />} />
           </Routes>
         </ToastProvider>
