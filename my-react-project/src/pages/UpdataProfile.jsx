@@ -17,7 +17,7 @@ const UpdataProfile = () => {
   const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
   const toggleShowPassword = () => setShowPassword(!showPassword);
 
-  //I added this function here
+  //I added this function here. From Yori
   const userData = async () => {
     const data = JSON.parse(sessionStorage.getItem("tokenObj"));
     try {
@@ -77,31 +77,38 @@ const UpdataProfile = () => {
 
   const handleNameChange = (e) => setName(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
+  //I adjusted this update profile picture function
   const handleImageChange = async (e) => {
     if (e.target.files && e.target.files[0]) {
-      setProfileImage(e.target.files[0]);
-    }
-    const data = JSON.parse(sessionStorage.getItem("tokenObj"));
-    const formData = new FormData();
-    formData.append("image", profileImage);
-    formData.append("userid", data.userid);
-    try {
-      const response = await axios.post(
-        `${baseUrl}/updateprofile/updateprofilepicture.php`,
-        formData,
-        {
-          headers: {
-            Accesstoken: data.accessToken,
-          },
+      const file = e.target.files[0];
+      setProfileImage(URL.createObjectURL(file));
+
+      const data = JSON.parse(sessionStorage.getItem("tokenObj"));
+      const formData = new FormData();
+      formData.append("image", file);
+      formData.append("userid", data.userid);
+
+      try {
+        const response = await axios.post(
+          `${baseUrl}/updateprofile/updateprofilepicture.php`,
+          formData,
+          {
+            headers: {
+              Accesstoken: data.accessToken,
+              // "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        console.log(response);
+        if (response.data.response) {
+          setProfileImage(response.data.data);
         }
-      );
-      // setAnimalData(response?.data?.animals);
-      console.log(response);
-    } catch (error) {
-      console.error("Error during sign in:", error);
-      // Handle error, e.g., show an error message to the user
+      } catch (error) {
+        console.error("Error during image upload:", error);
+      }
     }
   };
+  //It ended here
 
   const handleSubmitName = async (e) => {
     e.preventDefault();
@@ -142,7 +149,7 @@ const UpdataProfile = () => {
         <div className="profile-form">
           <div className="profile-image-container">
             <img
-              src={profileImage || "default-profile.png"} //I already set profileImage to the image here, and it works. But nnow you will work on it so that when the image is changed, it sets the image to the new image set
+              src={profileImage || "default-profile.png"} //I already set profileImage to the image here, and it works. But nnow you will work on it so that when the image is changed, it sets the image to the new image set. From Yori
               alt="Profile"
               className="profile-image"
             />
