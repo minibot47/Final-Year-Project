@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./update-profile.css";
 import axios from "axios";
 
@@ -11,12 +11,38 @@ const UpdataProfile = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  console.log(profileImage);
   const handlePreviousPasswordChange = (e) =>
     setPreviousPassword(e.target.value);
   const handleNewPasswordChange = (e) => setNewPassword(e.target.value);
   const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
   const toggleShowPassword = () => setShowPassword(!showPassword);
+
+  //I added this function here
+  const userData = async () => {
+    const data = JSON.parse(sessionStorage.getItem("tokenObj"));
+    try {
+      const response = await axios.post(
+        `${baseUrl}/updateprofile/getuserprofile.php`,
+        { userid: data.userid },
+        {
+          headers: {
+            Accesstoken: data.accessToken,
+          },
+        }
+      );
+      // console.log(response?.data)
+      setProfileImage(response?.data?.userprofile.profilepic);
+      console.log(profileImage)
+    } catch (error) {
+      console.error("Error during sign in:", error);
+      // Handle error, e.g., show an error message to the user
+    }
+  };
+
+  useEffect(() => {
+    userData();
+  }, [baseUrl])
+  //And it ended here. Check below for other info
 
   const handleSubmitPassword = async (e) => {
     e.preventDefault();
@@ -113,10 +139,10 @@ const UpdataProfile = () => {
         <h1 className="personal-info-header">Personal Information</h1>
       </div>
       <div className="personal-info-update">
-        <div  className="profile-form">
+        <div className="profile-form">
           <div className="profile-image-container">
             <img
-              src={profileImage || "default-profile.png"}
+              src={profileImage || "default-profile.png"} //I already set profileImage to the image here, and it works. But nnow you will work on it so that when the image is changed, it sets the image to the new image set
               alt="Profile"
               className="profile-image"
             />
@@ -130,7 +156,7 @@ const UpdataProfile = () => {
               className="image-upload-input"
             />
           </div>
-          <form onSubmit={handleSubmitName}  className="form-info">
+          <form onSubmit={handleSubmitName} className="form-info">
             <div className="input-group">
               <label htmlFor="name">Name</label>
               <input
@@ -156,7 +182,7 @@ const UpdataProfile = () => {
         </div>
       </div>
       <div className="personal-info-header-wrapper">
-        <h1  className="personal-info-header">Change Password</h1>
+        <h1 className="personal-info-header">Change Password</h1>
       </div>
       <div className="profile-form">
         <form onSubmit={handleSubmitPassword} className="form-info">
