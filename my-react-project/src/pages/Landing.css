@@ -8,7 +8,11 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    border-bottom: 1px solid blue;
+    border-bottom: 1.5px solid blue;
+}
+
+.navbar h1{
+    color:  rgba(33, 150, 243, 1);
 }
 
 .navbar ul{
@@ -28,8 +32,8 @@
     cursor: pointer;
 }
 
-.navbar li :hover{
-    border-bottom: 2px solid blue;
+.navhover :hover{
+    border-bottom: 1px solid blue;
 }
 
 .navbar button{
@@ -37,11 +41,6 @@
     background-color: white;
     cursor: pointer;
     font-size: 20px
-    
-}
-
-.navbar button :hover{
-    border-bottom: 2px solid blue;
 }
 
 .signup-button button{
@@ -51,16 +50,17 @@
     background: rgba(33, 150, 243, 1);
     color: white;
     border-radius: 0.5rem;
-    border: 1px solid white;
 }
 
-.signup-button button :hover{
-    background-color: red;
+.signup-button :hover{
+    background-color:  rgba(98, 98, 229, 0.642);
+    border-radius: 1rem;
 }
+
 
 .firstpage{
     display: flex;
-    height: 100%;
+    height: 80vh;
     width: 100%;
     margin-top: 5%;
 }
@@ -97,17 +97,17 @@
 }
 
 .firstpage-left button{
-    margin-top: 0.5%;
+    margin-top: 1%;
     height: 64px;
     width: 193px;
     background: rgba(33, 150, 243, 1);
     font-size: 20px;
     color: white;
     border: transparent;
-    border-radius: 0.3rem;
+    border-radius: 0.4rem;
     cursor: pointer;
-
 }
+
 
 .firstpage-right{
     width: 50%;
@@ -117,6 +117,397 @@
     width: 500px;
     height: 538px;
     border-radius: 1rem;
+}
+
+.secondpage{
+    background: linear-gradient(270deg, #2196F3 0%, #6A4FFD 100%);
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.secondpage1{
+    height: 130px;
+    width: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secondpage1 img{
+    margin-left: 2%;
+    width: 65px;
+    height: 65px;
+}
+
+.secondpage1 h2{
+    margin-left: 25%;
+    margin-bottom: -40%;
+    color: white;
+}
+
+.secondpage1 h4{
+    margin-left: 30%;
+    color: white;
+}
+
+.secondpage2{
+    height: 130px;
+    width: 426px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secondpage2 img{
+    margin-left: 2%;
+    width: 65px;
+    height: 65px;
+}
+
+.secondpage2 h2{
+    margin-left: -50%;
+    margin-bottom: -10%;
+    color: white;
+}
+
+.secondpage2 h4{
+    margin-left: 10%;
+    width: 200px;
+    color: white;
+}
+
+.secondpage3{
+    height: 130px;
+    width: 426px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secondpage3 img{
+    margin-left: 2%;
+    width: 65px;
+    height: 65px;
+}
+
+.secondpage3 h2{
+    margin-left: -50%;
+    margin-bottom: -10%;
+    color: white;
+}
+
+.secondpage3 h4{
+    margin-left: 10%;
+    width: 200px;
+    color: white;
+}
+
+.thirdpage{
+    margin-top: 5%;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.thirdpage-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thirdpage img{
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 1200px;
+    height: 500px;
+    border-radius: 0.5rem;
+}
+
+.thirdpage h1{
+    text-align: center;
+}
+
+.thirdpage span{
+    color:rgba(33, 150, 243, 1);
+}
+
+.thirdpage h4{
+    text-align: center;
+    margin-top: 2%;
+    padding-left: 50px;
+    padding-right: 50px;
+    
+}
+
+.fourthpage{
+    height: 100vh;
+    width: 100%;
+}
+
+.fourthpage-wrapper{
+    height: 100%;
+    width: 100%;
+    display: flex;
+
+}
+
+.fourthpage-right{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fourthpage-img{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fourthpage-img img{
+    height: 671px;
+    width: 582px;
+}
+
+
+.keylists img{
+    height: 69px;
+    width: 69px;
+}
+
+
+.keylists1{
+    display: flex;
+    width: 100%;
+    height: 120px;
+    align-items: center;
+}
+
+.fourthpage p{
+    color: black;
+    padding: 2%;
+    text-align: left;
+}
+
+.fourthpage h1{
+    color: black;
+    margin-bottom:0%;
+    text-align: center;
+    text-align: left;
+    font-weight: normal;
+    font-size: 30px;
+}
+
+.fourthpage span{
+    color:rgba(33, 150, 243, 1);
+}
+
+.fifthpage{
+    height: 100vh;
+    width: 100%;
+    background: rgba(250, 250, 250, 1);
+}
+
+.fifthpage h1{
+    text-align: center;
+    padding-top: 2%;
+    margin-bottom: 3%;
+    font-size: 35px;
+}
+
+.fifthpage span{
+    color:rgba(33, 150, 243, 1);
+
+}
+
+.fifthpage-grid{
+    display: grid;
+    grid-template-columns:1fr,1fr;
+    grid-template-rows: 1fr , 1fr;
+    gap: 34px;
+}
+
+.fifthpage-grid img{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+
+}   
+
+.fifthpage-grid h1{
+    color: black;
+    margin-top: -5%;
+    font-size: 15px;
+    font-weight: lighter;
+    text-align: left;
+    
+}  
+
+.fifthpage-grid h2{
+    font-weight: normal;
+    color: rgba(33, 150, 243, 1);
+    font-size: 25px;
+    margin-top: 1%;
+    text-align: left;
+}  
+
+.grid1{
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    width: 80%;
+    height: 312px;
+    align-self: center;
+    justify-self: center;
+}
+.grid2{
+    display: grid;
+    grid-column: 1;
+    grid-row: 2;
+    width: 80%;
+    height: 312px;
+    align-self: center;
+    justify-self: center;
+}
+
+.grid3{
+    display: grid;
+    grid-column: 2;
+    grid-row: 1;
+    width: 80%;
+    height: 312px;
+    align-self: center;
+    justify-self: center;
+}
+
+.grid4{
+    display: grid;
+    grid-column: 2;
+    grid-row: 2;
+    width: 80%;
+    height: 312px;
+    align-self: center;
+    justify-self: center;
+}
+
+.sixthpage{
+    height: 100vh;
+    width: 100%;
+    background-color: azure;
+    display: block;
+}
+.sixthpage-top{
+    width: 100%;
+    height: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sixthinfo{
+    height: 360px;
+    width: 1241px;
+    background: linear-gradient(270deg, #2196F3 0%, #6A4FFD 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+}
+
+.sixthinfo h2{
+    color: white;
+    width: 700px;
+    text-align: center;
+    line-height: 32px;
+    font-size: 32px;
+}
+
+.sixthinfo button{
+    width: 234px;
+    height: 64px;
+    text-align: center;
+    background: rgba(255, 255, 255, 1);
+    color: black;
+    border-radius: 0.5rem;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.sixthpage-bottom{
+    width: 100%;
+    height: 35%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    padding-top: 5%;
+    
+}
+
+.sixthpage-bottom h3{
+    font-weight: lighter;
+}
+
+.sixthlivestock{
+    width: 33.33%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.sixthlivestock h2{
+    text-align: left;
+}
+
+.sixthpage-bottom h2{
+    color: rgba(33, 150, 243, 1);
+}
+
+.sixthcontact{
+    width: 28%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sixthcontact h2,h3{
+    margin: 0;
+    display: flex;
+    align-self: left;
+    justify-self: left;
+    margin-bottom: 2%;
+}
+
+.sixthlist{
+    width: 33.33%;
+    height: 100%;
+}
+
+.sixthlist img{
+    width: 35px;
+    height: 35px;
+}
+
+.sixthpage-bottom ul{
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    
 }
 
 

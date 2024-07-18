@@ -8,10 +8,22 @@
   max-width: 800px;
 }
 
+.user-info h3{
+  font-weight: lighter;
+}
+
+.user-info img{
+  padding-right: 20px;
+  height: 60px;
+  width: 60px;
+}
+
 .edit-profile {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 1100px;
+  margin: 3%;
 }
 .edit-profile-right {
   display: flex;
@@ -19,10 +31,32 @@
   justify-content: space-between;
 }
 
+.edit-profile-right button{
+  background: rgba(33, 150, 243, 1);
+  height: 74px;
+  width: 218px;
+  font-size: 24px;
+  color: white;
+  border: 1px solid white;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.edit-profile-right button img{
+  height: 30px;
+  width: 30px;
+}
+
 .user-profile {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 3%;
+  height: 80px;
+  width: 1100px;
 }
 
 .user-profile-right {

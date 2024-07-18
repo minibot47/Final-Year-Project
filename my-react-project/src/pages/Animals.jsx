@@ -206,7 +206,7 @@ const Animals = () => {
           ))}
         </tbody>
       </table>
-      <label className="numbering">
+      {/* <label className="numbering">
         <h1>{"<"}</h1>
         <h2>1</h2>
         <h2>2</h2>
@@ -216,7 +216,7 @@ const Animals = () => {
         <h2>....</h2>
         <h2>100</h2>
         <h1>{">"}</h1>
-      </label>
+      </label> */}
     </div>
   );
 };

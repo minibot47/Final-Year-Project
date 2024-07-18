@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Settings.css";
 import not from "../images/not.png";
-import profile from "../images/profile.png";
+import userimg from "../images/user.png"
+import edituser from "../images/edit img.png"
 import axios from "axios";
+
+
 const Settings = () => {
   const [userProfile, setUserProfile] = useState(null);
   const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -45,25 +48,25 @@ const Settings = () => {
         <div className="Appointmentstopright">
           <img src={not} alt="notifications" />
 
-          <img src={profile} alt="profile" />
+          <img src={userimg} alt="profile" />
         </div>
       </div>
       <div className="user-info">
         <div className="edit-profile-wrapper">
           <div className="edit-profile">
             <div className="edit-profile-right">
-              <img className="user-image" src={profile} alt="" />
+              <img className="user-image" src={userimg} alt="" />
               <h3 className="username"> {userProfile?.fullname}</h3>
             </div>
             <div className="edit-profile-right">
               <Link className="edit-btn" to={"/"}>
-                Edit Profile
+                <button> <img className="edit" src={edituser} alt="profile" /> Edit Profile</button>
               </Link>
             </div>
           </div>
           <div className="user-profile">
             <div className="user-profile-right">
-              <img className="user-image" src={profile} alt="" />
+              <img className="user-image" src={userimg} alt="" />
               <h3 className="username"> Name</h3>
             </div>
             <div className="user-profile-right">
@@ -72,7 +75,7 @@ const Settings = () => {
           </div>
           <div className="user-profile">
             <div className="user-profile-right">
-              <img className="user-image" src={profile} alt="" />
+              <img className="user-image" src={userimg} alt="" />
               <h3 className="username"> Email</h3>
             </div>
             <div className="user-profile-right">

@@ -46,6 +46,7 @@
   width: 1000px;
 }
 
+
 .Appoinmentsbody {
   border: rgba(128, 128, 128, 0.36) solid 2px;
   padding-left: 3%;
@@ -215,7 +216,7 @@
 }
 
 .bookappoinment button {
-  height: 50px;
+  height: 60px;
   width: 25%;
   background-color: rgba(33, 150, 243, 1);
   color: white;
@@ -227,5 +228,7 @@
 }
 
 .bookappoinment button:hover {
-  border: black solid 2px;
+  border: darkblue solid 2px;
+  background-color: rgb(50, 153, 238);
+  border-radius: 1rem;
 }

@@ -210,7 +210,7 @@ const Dashboard = () => {
                 </div>
                 <div className="dashboardtopright">
                   <img src={not} alt="notifications" />
-                  <img src={profile} alt="profile" />
+                  <img src={profile} alt="profile" onClick={() => handleViewChange("settings")}/>
                 </div>
               </div>
               <div className="dashboardanimalcount">
