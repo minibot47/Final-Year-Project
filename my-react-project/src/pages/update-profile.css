@@ -9,17 +9,19 @@
   
   .profile-form {
     background: white;
-    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 1000px;
+    /* max-width: 1000px; */
     margin: 0 auto;
     text-align: left;
+    padding: 1rem 1.5rem;
+    margin: 1rem 3rem;
+    max-width: 800px;
+    border: 4px #E5E5E5 solid;
   }
 
   .profile-image-container{
-margin-left: 7.5rem;
+margin-left: 2.5rem;
     /* width: 70%; */
     padding: 2%;
     font-size: 17px;
@@ -30,8 +32,8 @@ margin-left: 7.5rem;
     justify-content: center;
     margin: auto;
     height: inherit;
-    width: 70%;
-    padding: 2%;
+    width: 85%;
+    padding:0 2%;
     font-size: 17px;
   }
   .profile-image-container {
@@ -62,19 +64,20 @@ margin-left: 7.5rem;
   }
   
   .input-group {
-    margin: 20px 0;
+    /* margin: 20px 0; */
   }
   
   .input-group label {
     display: block;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
     font-weight: bold;
   }
   
   .input-group input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: transparent;
+    border: 1px solid #e5e5e5;
     border-radius: 4px;
   }
   
@@ -114,12 +117,13 @@ margin-left: 7.5rem;
 }
 
 .input-group {
-  margin: 20px 0;
+  /* margin: 20px 0; */
 }
 
 .input-group label {
   display: block;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
+  color: #646464;
   font-weight: bold;
 }
 
@@ -145,18 +149,61 @@ margin-left: 7.5rem;
 .update-button {
   background-color: #007bff;
   color: white;
-  padding: 10px 20px;
+  padding: 15px 25px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
+  margin-top: 1rem;
+  font-size: 18px;
 }
 
 .update-button:hover {
   background-color: #0056b3;
 }
-
+/* .personal-info-update{
+  /* max-width: 800px; */
+  /* padding: 1rem 1.5rem;
+  margin: 1rem 3rem;
+  border: 4px #E5E5E5 solid;
+} */ */
 
 .personal-info-header{
   color:rgba(33, 150, 243, 1);
+  margin: 0;
+}
+
+.rightdashboard{
+  width: 100%;
+}
+
+.updateprofilepage{
+  text-align: left;
+
+}
+.blueupdateprofile2{
+  color: #007bff;
+}
+
+.personal-info-header-wrapper{
+  margin: 1rem 3rem;
+}
+
+.edit-input{
+  margin: 2px 0;
+  border-color: #e5e5e5;
+}
+
+.input-group-wrapper{
+  display: flex;
+}
+
+.input--group1{
+  width: 49%;
+  margin-right: 1%;
+  
+}
+.input--group2{
+  width: 49%;
+  margin-left: 1%;
+
 }
