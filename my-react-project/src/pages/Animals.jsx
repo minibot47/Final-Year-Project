@@ -15,7 +15,34 @@ const Animals = () => {
     setSearchTerm(event.target.value);
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+ 
+
+  const performSearch = async () =>{
+    const data = JSON.parse(sessionStorage.getItem("tokenObj"));
+    try {
+      const response = await axios.post(
+        `${baseUrl}/animal/filteranimal.php`,
+        { userid: data.userid, query: searchTerm },
+        {
+          headers: {
+            Accesstoken: data.accessToken,
+          },
+        }
+      );
+      setAnimalData(response?.data?.animals);
+      console.log(response);
+    } catch (error) {
+      console.error("Error during sign in:", error);
+      // Handle error, e.g., show an error message to the user
+    }
+  }
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      performSearch();
+    }
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);  
   const [livestock, setLivestock] = useState([]);
   const [animalData, setAnimalData] = useState([]);
   const [healthStatus, setHealthStatus] = useState('');
@@ -139,6 +166,7 @@ const Animals = () => {
                   placeholder="Search..."
                   value={searchTerm}
                   onChange={handleChange}
+                  onKeyDown={handleKeyPress}
                 />
               </div>
             </div>

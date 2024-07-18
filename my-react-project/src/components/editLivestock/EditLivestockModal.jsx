@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./edit-livestock.css";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const EditLivestockModal = ({ open, handleClose, handleEdit, livestock }) => {
   const data = JSON.parse(sessionStorage.getItem("tokenObj"));
@@ -56,7 +58,11 @@ const EditLivestockModal = ({ open, handleClose, handleEdit, livestock }) => {
           },
         }
       );
-      // I WILL TOAST HERE
+      if (formValues.bodyTemperature >= 32 && formValues.bodyTemperature <= 40) {
+        toast.success("Your livestock is healthy");
+      } else {
+        toast.error("You need to book an appointment for this livestock");
+      }
     } catch (error) {
       console.error("Error during sign in:", error);
       // Handle error, e.g., show an error message to the user

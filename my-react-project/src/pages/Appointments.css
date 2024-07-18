@@ -94,6 +94,7 @@
 .timeslots button {
   font-size: 20px;
   color: rgba(100, 100, 100, 1);
+  border: none;
 }
 
 .timeslots button:hover {
@@ -181,10 +182,20 @@
 
 .mode {
   width: 250px;
-  height: 40px;
+  height: 80px;
   border-radius: transparent 5px;
   font-size: 18px;
-  margin: 0 2px;
+  margin-right: 20px;
+  padding: 15px 0;
+  font-size: 20px;
+  color: rgba(100, 100, 100, 1);
+  border: none;
+}
+.mode :hover{
+  border: rgb(41, 161, 209) solid 2px;
+}
+.submit-btn{
+  text-wrap:nowrap;
 }
 
 .mode .selected{
@@ -196,9 +207,13 @@
 
 .mode {
   width: 250px;
-  height: 40px;
+  height: 70px;
   border-radius: transparent 5px;
   font-size: 18px;
+}
+
+.Appointmentspagetop{
+  margin-bottom: 4rem;
 }
 
 
@@ -216,14 +231,20 @@
 }
 
 .bookappoinment button {
+<<<<<<< HEAD
   height: 60px;
   width: 25%;
+=======
+  height: 50px;
+  width: 45%;
+>>>>>>> 25f4fb19732244d79589eaf7238bd173c426d9a0
   background-color: rgba(33, 150, 243, 1);
   color: white;
-  font-size: 24px;
+  font-size: 26px;
   outline: rgba(33, 150, 243, 1);
   border: white solid 2px;
   border-radius: 5px;
+  margin-top: 35px;
   cursor: pointer;
 }
 

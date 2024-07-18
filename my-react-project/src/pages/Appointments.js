@@ -14,35 +14,44 @@ import { ThreeDots } from "react-loader-spinner";
 const Appointments = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [reminder, setReminder] = useState("");
+  const [email, setEmail] = useState("");
   const [mode, setMode] = useState("");
   const [time, setTime] = useState("");
   const [loading, setLoading] = useState(false);
+
   const handleReminderChange = (event) => {
     setReminder(event.target.value);
   };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const data = JSON.parse(sessionStorage.getItem("tokenObj"));
-  const appointmentData = {
+  const [appointmentData, setAppointmentData] = useState({
     id: data.userid,
     meetingMode: mode,
     date: selectedDate ? selectedDate.toISOString().split("T")[0] : "",
     time: time,
     reminder: reminder,
-  };
+    email: email,
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!selectedDate || !time || !mode) {
+    if (!selectedDate || !time || !mode || !email) {
       toast.error("Please fill all the required fields");
       return;
     }
+
     const formData = new FormData();
     formData.append("userid", appointmentData.id);
-    formData.append("meeting-mode", appointmentData.meetingMode);
-    formData.append("date", appointmentData.date);
-    formData.append("time", appointmentData.time);
-    formData.append("reminder", appointmentData.reminder);
-
+    formData.append("meeting-mode", mode);
+    formData.append("date", selectedDate.toISOString().split("T")[0]);
+    formData.append("time", time);
+    formData.append("reminder", reminder);
+    formData.append("email", email);
 
     setLoading(true);
 
@@ -64,6 +73,7 @@ const Appointments = () => {
       setTime("");
       setReminder("");
       setMode("");
+      setEmail("");
     } catch (error) {
       setLoading(false);
       toast.error("Failed to book appointment. Please try again.");
@@ -89,6 +99,16 @@ const Appointments = () => {
       </div>
       <form onSubmit={handleSubmit}>
         <div className="Appoinmentsbody">
+          <h2>Email</h2>
+          <div className="date-picker-container">
+            <input
+              type="text"
+              name="email"
+              value={email}
+              onChange={handleEmailChange}
+              required
+            />
+          </div>
           <h2>Date of last Treatment</h2>
           <div className="date-picker-container">
             <DatePicker
@@ -146,7 +166,7 @@ const Appointments = () => {
             </button>
           </div>
           <div className="bookappoinment">
-            <button type="submit" disabled={loading}>
+            <button type="submit" className="submit-btn" disabled={loading}>
               {loading ? (
                 <ThreeDots
                   height="10"

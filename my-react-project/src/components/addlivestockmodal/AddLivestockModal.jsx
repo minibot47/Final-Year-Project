@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./addlivestock.css";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddLivestockModal = ({ open, handleClose, handleAdd }) => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -40,6 +42,11 @@ const AddLivestockModal = ({ open, handleClose, handleAdd }) => {
           },
         }
       );
+      if (formValues.bodyTemp > 32 && formValues.bodyTemp < 40) {
+        toast.success("Your livestock is healthy");
+      } else {
+        toast.error("You need to book an appointment for this livestock");
+      }
       // Handle successful add animal here, e.g., redirect or show a success message
     } catch (error) {
       console.error("Error during sign in:", error);
