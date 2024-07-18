@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./update-profile.css";
 import { ThreeDots } from "react-loader-spinner";
 import axios from "axios";import { toast } from "react-toastify";
@@ -14,12 +14,38 @@ const UpdataProfile = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  console.log(profileImage);
   const handlePreviousPasswordChange = (e) =>
     setPreviousPassword(e.target.value);
   const handleNewPasswordChange = (e) => setNewPassword(e.target.value);
   const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
   const toggleShowPassword = () => setShowPassword(!showPassword);
+
+  //I added this function here. From Yori
+  const userData = async () => {
+    const data = JSON.parse(sessionStorage.getItem("tokenObj"));
+    try {
+      const response = await axios.post(
+        `${baseUrl}/updateprofile/getuserprofile.php`,
+        { userid: data.userid },
+        {
+          headers: {
+            Accesstoken: data.accessToken,
+          },
+        }
+      );
+      // console.log(response?.data)
+      setProfileImage(response?.data?.userprofile.profilepic);
+      console.log(profileImage)
+    } catch (error) {
+      console.error("Error during sign in:", error);
+      // Handle error, e.g., show an error message to the user
+    }
+  };
+
+  useEffect(() => {
+    userData();
+  }, [baseUrl])
+  //And it ended here. Check below for other info
 
   const handleSubmitPassword = async (e) => {
     e.preventDefault();
@@ -54,31 +80,38 @@ const UpdataProfile = () => {
 
   const handleNameChange = (e) => setName(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
+  //I adjusted this update profile picture function
   const handleImageChange = async (e) => {
     if (e.target.files && e.target.files[0]) {
-      setProfileImage(e.target.files[0]);
-    }
-    const data = JSON.parse(sessionStorage.getItem("tokenObj"));
-    const formData = new FormData();
-    formData.append("image", profileImage);
-    formData.append("userid", data.userid);
-    try {
-      const response = await axios.post(
-        `${baseUrl}/updateprofile/updateprofilepicture.php`,
-        formData,
-        {
-          headers: {
-            Accesstoken: data.accessToken,
-          },
+      const file = e.target.files[0];
+      setProfileImage(URL.createObjectURL(file));
+
+      const data = JSON.parse(sessionStorage.getItem("tokenObj"));
+      const formData = new FormData();
+      formData.append("image", file);
+      formData.append("userid", data.userid);
+
+      try {
+        const response = await axios.post(
+          `${baseUrl}/updateprofile/updateprofilepicture.php`,
+          formData,
+          {
+            headers: {
+              Accesstoken: data.accessToken,
+              // "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        console.log(response);
+        if (response.data.response) {
+          setProfileImage(response.data.data);
         }
-      );
-      // setAnimalData(response?.data?.animals);
-      console.log(response);
-    } catch (error) {
-      console.error("Error during sign in:", error);
-      // Handle error, e.g., show an error message to the user
+      } catch (error) {
+        console.error("Error during image upload:", error);
+      }
     }
   };
+  //It ended here
 
   const handleSubmitName = async (e) => {
     e.preventDefault();
@@ -131,7 +164,7 @@ setLoading(true)
         <div className="profile-form">
           <div className="profile-image-container">
             <img
-              src={profileImage || "default-profile.png"}
+              src={profileImage || "default-profile.png"} //I already set profileImage to the image here, and it works. But nnow you will work on it so that when the image is changed, it sets the image to the new image set. From Yori
               alt="Profile"
               className="profile-image"
             />
