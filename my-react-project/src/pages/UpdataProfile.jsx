@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./update-profile.css";
 import { ThreeDots } from "react-loader-spinner";
-import axios from "axios";import { toast } from "react-toastify";
+import axios from "axios"; import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const UpdataProfile = () => {
@@ -9,8 +9,8 @@ const UpdataProfile = () => {
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [profileImage, setProfileImage] = useState(null);
-  const [previousPassword, setPreviousPassword] = useState("");
+  const [profileImage, setProfileImage] = useState("");
+  const [previousPassword, setPreviousPassword] = useState(null);
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -33,20 +33,22 @@ const UpdataProfile = () => {
           },
         }
       );
-      // console.log(response?.data)
-      setProfileImage(response?.data?.userprofile.profilepic);
-      console.log(profileImage)
+      console.log(response);
+      setProfileImage(response?.data?.userprofile?.profilepic);
+      console.log(profileImage);
     } catch (error) {
       console.error("Error during sign in:", error);
       // Handle error, e.g., show an error message to the user
     }
   };
 
+  // console.log(profileImage);
+
   useEffect(() => {
     userData();
-  }, [baseUrl])
+  })
   //And it ended here. Check below for other info
-
+  // setProfileImage(profileImage);
   const handleSubmitPassword = async (e) => {
     e.preventDefault();
     // Handle form submission logic here
@@ -103,8 +105,9 @@ const UpdataProfile = () => {
           }
         );
         console.log(response);
-        if (response.data.response) {
-          setProfileImage(response.data.data);
+        if (response.data.response === true) {
+          setProfileImage(response?.data?.data);
+          console.log(profileImage);
         }
       } catch (error) {
         console.error("Error during image upload:", error);
@@ -116,7 +119,7 @@ const UpdataProfile = () => {
   const handleSubmitName = async (e) => {
     e.preventDefault();
     const data = JSON.parse(sessionStorage.getItem("tokenObj"));
-setLoading(true)
+    setLoading(true)
     // Handle form submission logic here
     const formData = new FormData();
     formData.append("userid", data.userid);
@@ -137,9 +140,8 @@ setLoading(true)
     } catch (error) {
       console.error("Error updating profile:", error);
       // alert("Failed to update profile.");
-    }finally
-    {
-      setLoading(false) 
+    } finally {
+      setLoading(false)
 
     }
 
@@ -203,16 +205,16 @@ setLoading(true)
               />
             </div>
             <button type="submit" className="update-button">
-            {loading ? (
-                    <ThreeDots
-                      type="ThreeDots"
-                      color="#000"
-                      height={30}
-                      width={30}
-                    />
-                  ) : (
-                    "Update"
-                  )}
+              {loading ? (
+                <ThreeDots
+                  type="ThreeDots"
+                  color="#000"
+                  height={30}
+                  width={30}
+                />
+              ) : (
+                "Update"
+              )}
             </button>
           </form>
         </div>
@@ -246,7 +248,7 @@ setLoading(true)
             <div className="input-group input--group2">
               <label htmlFor="new-password">Enter New Password</label>
               <div className="password-input-container">
-                <input                                                                                                                                                                                                                      
+                <input
                   type={showPassword ? "text" : "password"}
                   id="new-password"
                   className="edit-input"
@@ -285,16 +287,16 @@ setLoading(true)
             </div>
           </div>
           <button type="submit" className="update-button">
-          {loading ? (
-                    <ThreeDots
-                      type="ThreeDots"
-                      color="#000"
-                      height={30}
-                      width={30}
-                    />
-                  ) : (
-                    "Update"
-                  )}
+            {loading ? (
+              <ThreeDots
+                type="ThreeDots"
+                color="#000"
+                height={30}
+                width={30}
+              />
+            ) : (
+              "Update"
+            )}
           </button>
         </form>
       </div>

@@ -21,7 +21,7 @@ import EditLivestockModal from "../components/editLivestock/EditLivestockModal.j
 import AddLivestockModal from "../components/addlivestockmodal/AddLivestockModal.jsx";
 
 const Dashboard = () => {
-  const [view, setView] = useState("");
+  const [view, setView] = useState("dashboard");
   const [livestock, setLivestock] = useState([]);
   const [animalData, setAnimalData] = useState([]);
   const [dashboardData, setDashboardData] = useState([]);

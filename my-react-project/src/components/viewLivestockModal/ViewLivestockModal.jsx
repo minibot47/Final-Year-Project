@@ -1,9 +1,16 @@
 import React from "react";
 import "./view-livestock-modal.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ViewLivestockModal = ({ open, handleClose, livestock }) => {
   if (!open) return null;
   // console.log(livestock.animal?.id, "hehhe" );
+  if (livestock?.animal?.temperature >= 32 && livestock?.animal?.temperature <= 40) {
+    toast.success("Your livestock is healthy");
+  } else {
+    toast.error("You need to book an appointment for this livestock");
+  }
   return (
     <div className="modal-overlay">
       <div className="modal-container">
