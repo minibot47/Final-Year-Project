@@ -77,7 +77,7 @@ const UpdataProfile = () => {
 
   const handleNameChange = (e) => setName(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
-  //I adjusted this update profile picture function
+  //I adjusted this update profile picture function. From Yori
   const handleImageChange = async (e) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
