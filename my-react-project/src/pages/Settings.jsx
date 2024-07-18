@@ -69,21 +69,23 @@ const Settings = () => {
     }
   };
 
-    // Function to handle view change and fetch data accordingly
-    const handleViewChange = (view) => {
-      setView(view);
-      if (view === "dashboard") {
-        fetchDashboardData();
-      } else if (view === "animals") {
-        fetchAnimalData();
-      } else if (view === "anppointments") {
-        fetchAnimalData();
-      } else if (view === "settings") {
-        fetchAnimalData();
-      }
-    };
-    return (
-    <div className="Settings">
+  // Function to handle view change and fetch data accordingly
+  const handleViewChange = (view) => {
+    setView(view);
+    if (view === "dashboard") {
+      fetchDashboardData();
+    } else if (view === "animals") {
+      fetchAnimalData();
+    } else if (view === "anppointments") {
+      fetchAnimalData();
+    } else if (view === "settings") {
+      fetchAnimalData();
+    }
+  };
+  return (
+    <>
+    {view === "settings" && (
+      <div className="Settings">
       <div className="innerrightAppointmentstop">
         <div className="Appointmentsstopleft">
           <h2 className="Appointmentspage">
@@ -95,52 +97,54 @@ const Settings = () => {
           </div>
         </div>
 
-          <div className="Appointmentstopright">
+        <div className="Appointmentstopright">
           <img src={not} alt="notifications" />
 
           <img src={profile} alt="profile" />
         </div>
       </div>
-        {view === "settings" && (
-          <div className="user-info">
-        <div className="edit-profile-wrapper">
-          <div className="edit-profile">
-            <div className="edit-profile-right">
-              <img className="user-image" src={profile} alt="" />
-              <h3 className="username"> {userProfile?.fullname}</h3>
+        <div className="user-info">
+          <div className="edit-profile-wrapper">
+            <div className="edit-profile edit-profile-head">
+              <div className="edit-profile-right">
+                <img className="user-image" src={profile} alt="" />
+                <h3 className="username"> {userProfile?.fullname}</h3>
+              </div>
+              <div className="edit-profile-right">
+                <button
+                  className="edit-profile-button"
+                  onClick={() => handleViewChange("updateprofile")}
+                >
+                  <img src="edit.svg" alt="Edit Icon" width="24" height="24" />{" "}
+                  Edit Profile
+                </button>
+              </div>
             </div>
-            <div className="edit-profile-right">
-              <button className="edit-btn"  onClick={() => handleViewChange("updateprofile")}>
-                Edit Profile
-              </button>
+            <div className="user-profile edit-tab">
+              <div className="user-profile-right">
+                <img className="name-icon" src="name.svg" alt="" />
+                <h3 className="username-"> Name</h3>
+              </div>
+              <div className="user-profile-right">
+                <h3 className="name">{userProfile?.fullname}</h3>
+              </div>
             </div>
-          </div>
-          <div className="user-profile">
-            <div className="user-profile-right">
-              <img className="user-image" src={profile} alt="" />
-              <h3 className="username"> Name</h3>
-            </div>
-            <div className="user-profile-right">
-              <h3 className="name">{userProfile?.fullname}</h3>
-            </div>
-          </div>
-          <div className="user-profile">
-            <div className="user-profile-right">
-              <img className="user-image" src={profile} alt="" />
-              <h3 className="username"> Email</h3>
-            </div>
-            <div className="user-profile-right">
-              <h3 className="name">{userProfile?.email}</h3>
+            <div className="user-profile edit-tab">
+              <div className="user-profile-right">
+                <img className="name-icon" src="email.svg" alt="" />
+                <h3 className="username-"> Email</h3>
+              </div>
+              <div className="user-profile-right">
+                <h3 className="name">{userProfile?.email}</h3>
+              </div>
             </div>
           </div>
         </div>
-        
-      </div>
-    )}
-  {view == 'updateprofile'&& <UpdataProfile/>}
-      </div>
-  
-);
+    </div>
+      )}
+      {view == "updateprofile" && <UpdataProfile />}
+      </>
+  );
 };
 
 export default Settings;

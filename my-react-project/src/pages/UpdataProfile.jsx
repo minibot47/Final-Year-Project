@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./update-profile.css";
-import axios from "axios";
+import { ThreeDots } from "react-loader-spinner";
+import axios from "axios";import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UpdataProfile = () => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
-  const [name, setName] = useState("John Doe");
-  const [email, setEmail] = useState("example@gmail.com");
+  const [loading, setLoading] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [profileImage, setProfileImage] = useState(null);
   const [previousPassword, setPreviousPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -113,7 +116,7 @@ const UpdataProfile = () => {
   const handleSubmitName = async (e) => {
     e.preventDefault();
     const data = JSON.parse(sessionStorage.getItem("tokenObj"));
-
+setLoading(true)
     // Handle form submission logic here
     const formData = new FormData();
     formData.append("userid", data.userid);
@@ -130,20 +133,32 @@ const UpdataProfile = () => {
         }
       );
       console.error(response);
-      alert("Profile updated successfully!");
+      // alert("Profile updated successfully!");
     } catch (error) {
       console.error("Error updating profile:", error);
-      alert("Failed to update profile.");
+      // alert("Failed to update profile.");
+    }finally
+    {
+      setLoading(false) 
+
     }
 
     alert(`Name: ${name}, Email: ${email}`);
   };
 
-
   return (
     <div>
       <div className="personal-info-header-wrapper">
-        <h1 className="personal-info-header">Personal Information</h1>
+        <div className="updateprofiletopleft">
+          <h2 className="updateprofilepage">
+            Home {">"} <span className="blueupdateprofile"> Setting</span> {">"}{" "}
+            <span className="blueupdateprofile2"> Edit Profile</span>
+          </h2>
+          <div className="updateprofilehtop">
+            <h1 className="personal-info-header">Personal Information</h1>
+            <div className="updateprofilehealth"></div>
+          </div>
+        </div>
       </div>
       <div className="personal-info-update">
         <div className="profile-form">
@@ -157,6 +172,7 @@ const UpdataProfile = () => {
               <i className="fas fa-camera"></i>
             </label>
             <input
+              // className="edit-input"
               type="file"
               id="image-upload"
               onChange={handleImageChange}
@@ -167,7 +183,9 @@ const UpdataProfile = () => {
             <div className="input-group">
               <label htmlFor="name">Name</label>
               <input
+                className="edit-input"
                 type="text"
+                placeholder="John Doe"
                 id="name"
                 value={name}
                 onChange={handleNameChange}
@@ -176,14 +194,25 @@ const UpdataProfile = () => {
             <div className="input-group">
               <label htmlFor="email">Email</label>
               <input
+                className="edit-input"
                 type="email"
                 id="email"
+                placeholder="example@gmail.com"
                 value={email}
                 onChange={handleEmailChange}
               />
             </div>
             <button type="submit" className="update-button">
-              Update
+            {loading ? (
+                    <ThreeDots
+                      type="ThreeDots"
+                      color="#000"
+                      height={30}
+                      width={30}
+                    />
+                  ) : (
+                    "Update"
+                  )}
             </button>
           </form>
         </div>
@@ -193,42 +222,46 @@ const UpdataProfile = () => {
       </div>
       <div className="profile-form">
         <form onSubmit={handleSubmitPassword} className="form-info">
-          <div className="input-group">
-            <label htmlFor="previous-password">Enter Previous Password</label>
-            <div className="password-input-container">
-              <input
-                type={showPassword ? "text" : "password"}
-                id="previous-password"
-                value={previousPassword}
-                onChange={handlePreviousPasswordChange}
-              />
-              <span
-                onClick={toggleShowPassword}
-                className="toggle-password-visibility"
-              >
-                <i
-                  className={showPassword ? "fas fa-eye-slash" : "fas fa-eye"}
-                ></i>
-              </span>
+          <div className="input-group-wrapper">
+            <div className="input-group input--group1">
+              <label htmlFor="previous-password">Enter Previous Password</label>
+              <div className="password-input-container">
+                <input
+                  className="edit-input"
+                  type={showPassword ? "text" : "password"}
+                  id="previous-password"
+                  value={previousPassword}
+                  onChange={handlePreviousPasswordChange}
+                />
+                <span
+                  onClick={toggleShowPassword}
+                  className="toggle-password-visibility"
+                >
+                  <i
+                    className={showPassword ? "fas fa-eye-slash" : "fas fa-eye"}
+                  ></i>
+                </span>
+              </div>
             </div>
-          </div>
-          <div className="input-group">
-            <label htmlFor="new-password">Enter New Password</label>
-            <div className="password-input-container">
-              <input
-                type={showPassword ? "text" : "password"}
-                id="new-password"
-                value={newPassword}
-                onChange={handleNewPasswordChange}
-              />
-              <span
-                onClick={toggleShowPassword}
-                className="toggle-password-visibility"
-              >
-                <i
-                  className={showPassword ? "fas fa-eye-slash" : "fas fa-eye"}
-                ></i>
-              </span>
+            <div className="input-group input--group2">
+              <label htmlFor="new-password">Enter New Password</label>
+              <div className="password-input-container">
+                <input                                                                                                                                                                                                                      
+                  type={showPassword ? "text" : "password"}
+                  id="new-password"
+                  className="edit-input"
+                  value={newPassword}
+                  onChange={handleNewPasswordChange}
+                />
+                <span
+                  onClick={toggleShowPassword}
+                  className="toggle-password-visibility"
+                >
+                  <i
+                    className={showPassword ? "fas fa-eye-slash" : "fas fa-eye"}
+                  ></i>
+                </span>
+              </div>
             </div>
           </div>
           <div className="input-group">
@@ -236,6 +269,7 @@ const UpdataProfile = () => {
             <div className="password-input-container">
               <input
                 type={showPassword ? "text" : "password"}
+                className="edit-input"
                 id="confirm-password"
                 value={confirmPassword}
                 onChange={handleConfirmPasswordChange}
@@ -251,7 +285,16 @@ const UpdataProfile = () => {
             </div>
           </div>
           <button type="submit" className="update-button">
-            Update
+          {loading ? (
+                    <ThreeDots
+                      type="ThreeDots"
+                      color="#000"
+                      height={30}
+                      width={30}
+                    />
+                  ) : (
+                    "Update"
+                  )}
           </button>
         </form>
       </div>

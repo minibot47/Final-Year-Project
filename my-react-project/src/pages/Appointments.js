@@ -146,7 +146,7 @@ const Appointments = () => {
             </button>
           </div>
           <div className="bookappoinment">
-            <button type="submit" disabled={loading}>
+            <button type="submit" className="submit-btn" disabled={loading}>
               {loading ? (
                 <ThreeDots
                   height="10"
