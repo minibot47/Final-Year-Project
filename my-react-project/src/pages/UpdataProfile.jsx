@@ -23,6 +23,7 @@ const UpdataProfile = () => {
 
   const handleSubmitPassword = async (e) => {
     e.preventDefault();
+    setLoading(true)
     // Handle form submission logic here
     if (newPassword === confirmPassword) {
       const data = JSON.parse(sessionStorage.getItem("tokenObj"));
@@ -45,6 +46,9 @@ const UpdataProfile = () => {
       } catch (error) {
         console.error("Error during sign in:", error);
         // Handle error, e.g., show an error message to the user
+      }finally
+      {
+        setLoading(false)
       }
       alert(`Password updated successfully!`);
     } else {
