@@ -127,7 +127,9 @@ const Appointments = () => {
                 className={`timeslot${appointment.id}`}
                 onClick={() => setTime(appointment.time)}
               >
-                <button type="button">{appointment.time}</button>
+                <button type="button" className={time === appointment.time ? "selected" : ""}>
+                  {appointment.time}
+                </button>
               </div>
             ))}
           </div>
@@ -149,38 +151,41 @@ const Appointments = () => {
             </select>
           </div>
           <h2>Mode of Meeting</h2>
-          <div className="meeting-mode">
-            <button
-              type="button"
-              className={`mode ${mode === "Physical" ? "selected" : ""}`}
-              onClick={() => setMode("Physical")}
-            >
-              Physical
-            </button>
-            <button
-              type="button"
-              className={`mode ${mode === "Virtual" ? "selected" : ""}`}
-              onClick={() => setMode("Virtual")}
-            >
-              Virtual
-            </button>
+          <div className="appointment-buttom">
+            <div className="meeting-mode">
+              <button
+                type="button"
+                className={`mode ${mode === "Physical" ? "selected" : ""}`}
+                onClick={() => setMode("Physical")}
+              >
+                Physical
+              </button>
+              <button
+                type="button"
+                className={`mode ${mode === "Virtual" ? "selected" : ""}`}
+                onClick={() => setMode("Virtual")}
+              >
+                Virtual
+              </button>
+            </div>
+            <div className="bookappoinment">
+              <button type="submit" className="submit-btn" disabled={loading}>
+                {loading ? (
+                  <ThreeDots
+                    height="10"
+                    width="40"
+                    radius="9"
+                    color="white"
+                    ariaLabel="three-dots-loading"
+                    visible={true}
+                  />
+                ) : (
+                  "Book Appointment"
+                )}
+              </button>
+            </div>
           </div>
-          <div className="bookappoinment">
-            <button type="submit" className="submit-btn" disabled={loading}>
-              {loading ? (
-                <ThreeDots
-                  height="10"
-                  width="40"
-                  radius="9"
-                  color="white"
-                  ariaLabel="three-dots-loading"
-                  visible={true}
-                />
-              ) : (
-                "Book Appointment"
-              )}
-            </button>
-          </div>
+
         </div>
       </form>
     </div>

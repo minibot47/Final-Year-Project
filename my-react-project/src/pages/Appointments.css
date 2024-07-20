@@ -8,6 +8,7 @@
   width: 1100px;
   display: flex;
   justify-content: space-between;
+  height: 70px;
 }
 
 .Appointmentstopright {
@@ -48,12 +49,14 @@
 
 
 .Appoinmentsbody {
-  border: rgba(128, 128, 128, 0.36) solid 2px;
+  border: rgba(128, 128, 128, 0.36) solid 3px;
   padding-left: 3%;
   padding-right: 3%;
   padding-bottom: 2%;
   color: black;
   width: 90%;
+  height: 109%;
+  margin-top: 11%;
 }
 
 .date-picker-container {
@@ -71,8 +74,9 @@
 
 .react-datepicker__input-container input {
   width: 95%;
-  height: 50px;
+  height: 30px;
   font-size: 20px;
+  margin-top: 0;
 }
 
 .date-picker {
@@ -80,6 +84,16 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.date-picker-container input{
+  margin-top: 0;
+}
+
+.Appoinmentsbody h2{
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .timeslots {
@@ -99,6 +113,8 @@
 
 .timeslots button:hover {
   border: rgb(41, 161, 209) solid 2px;
+  background-color: rgb(41, 161, 209);
+  border-radius: 2px solid rgb(41, 161, 209);
 }
 
 .timeslot1 {
@@ -151,7 +167,8 @@
 }
 
 .reminder-dropdown-container {
-  margin-top: 20px;
+  margin-top: 10px;
+
 }
 
 .reminder-dropdown {
@@ -194,6 +211,7 @@
 .mode :hover{
   border: rgb(41, 161, 209) solid 2px;
 }
+
 .submit-btn{
   text-wrap:nowrap;
 }
@@ -231,13 +249,8 @@
 }
 
 .bookappoinment button {
-<<<<<<< HEAD
   height: 60px;
-  width: 25%;
-=======
-  height: 50px;
-  width: 45%;
->>>>>>> 25f4fb19732244d79589eaf7238bd173c426d9a0
+  width: 55%;
   background-color: rgba(33, 150, 243, 1);
   color: white;
   font-size: 26px;
@@ -249,7 +262,62 @@
 }
 
 .bookappoinment button:hover {
-  border: darkblue solid 2px;
+  border: white solid 2px;
   background-color: rgb(50, 153, 238);
   border-radius: 1rem;
+}
+
+.Appointments form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 2%;
+  font-size: 17px;
+  margin-top:0;
+  font-size: 15px;
+}
+
+.appointment-buttom{
+  display: flex;
+  justify-content: space-between;
+}
+
+.timeslots button {
+  font-size: 20px;
+  color: rgba(100, 100, 100, 1);
+  border: none;
+}
+
+.timeslots button:hover {
+  border: rgb(41, 161, 209) solid 2px;
+  background-color: rgb(41, 161, 209);
+}
+
+.timeslots button.selected {
+  background-color: rgba(33, 150, 243, 1);
+  color: white;
+  border: rgba(33, 150, 243, 1) solid 2px;
+}
+
+.mode {
+  width: 250px;
+  height: 80px;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-right: 20px;
+  padding: 15px 0;
+  font-size: 20px;
+  color: rgba(100, 100, 100, 1);
+  border: none;
+}
+
+.mode:hover {
+  border: rgb(41, 161, 209) solid 2px;
+}
+
+.mode.selected {
+  background-color: rgba(33, 150, 243, 1);
+  color: white;
+  border: rgba(33, 150, 243, 1) solid 2px;
 }

@@ -5,12 +5,7 @@ import not from "../images/not.png";
 import userimg from "../images/user.png"
 import edituser from "../images/edit img.png"
 import axios from "axios";
-<<<<<<< HEAD
-
-
-=======
 import UpdataProfile from "./UpdataProfile";
->>>>>>> 25f4fb19732244d79589eaf7238bd173c426d9a0
 const Settings = () => {
   const [view, setView] = useState("settings");
   const [userProfile, setUserProfile] = useState(null);
@@ -109,42 +104,11 @@ const Settings = () => {
           <img src={userimg} alt="profile" />
         </div>
       </div>
-<<<<<<< HEAD
-      <div className="user-info">
-        <div className="edit-profile-wrapper">
-          <div className="edit-profile">
-            <div className="edit-profile-right">
-              <img className="user-image" src={userimg} alt="" />
-              <h3 className="username"> {userProfile?.fullname}</h3>
-            </div>
-            <div className="edit-profile-right">
-              <Link className="edit-btn" to={"/"}>
-                <button> <img className="edit" src={edituser} alt="profile" /> Edit Profile</button>
-              </Link>
-            </div>
-          </div>
-          <div className="user-profile">
-            <div className="user-profile-right">
-              <img className="user-image" src={userimg} alt="" />
-              <h3 className="username"> Name</h3>
-            </div>
-            <div className="user-profile-right">
-              <h3 className="name">{userProfile?.fullname}</h3>
-            </div>
-          </div>
-          <div className="user-profile">
-            <div className="user-profile-right">
-              <img className="user-image" src={userimg} alt="" />
-              <h3 className="username"> Email</h3>
-            </div>
-            <div className="user-profile-right">
-              <h3 className="name">{userProfile?.email}</h3>
-=======
         <div className="user-info">
           <div className="edit-profile-wrapper">
             <div className="edit-profile edit-profile-head">
               <div className="edit-profile-right">
-                <img className="user-image" src={profile} alt="" />
+                <img className="user-image" src={userimg} alt="" />
                 <h3 className="username"> {userProfile?.fullname}</h3>
               </div>
               <div className="edit-profile-right">
@@ -174,7 +138,6 @@ const Settings = () => {
               <div className="user-profile-right">
                 <h3 className="name">{userProfile?.email}</h3>
               </div>
->>>>>>> 25f4fb19732244d79589eaf7238bd173c426d9a0
             </div>
           </div>
         </div>

@@ -31,7 +31,6 @@ const Dashboard = () => {
   const [selectedLivestock, setSelectedLivestock] = useState(null);
   const baseUrl = process.env.REACT_APP_BASE_URL;
 
-  // Function to fetch dashboard data
   const fetchDashboardData = async () => {
     const data = JSON.parse(sessionStorage.getItem("tokenObj"));
     try {
@@ -50,7 +49,6 @@ const Dashboard = () => {
     }
   };
 
-  // Function to fetch animal data
   const fetchAnimalData = async () => {
     const data = JSON.parse(sessionStorage.getItem("tokenObj"));
     try {
@@ -69,14 +67,13 @@ const Dashboard = () => {
     }
   };
 
-  // Function to handle view change and fetch data accordingly
   const handleViewChange = (view) => {
     setView(view);
     if (view === "dashboard") {
       fetchDashboardData();
     } else if (view === "animals") {
       fetchAnimalData();
-    } else if (view === "anppointments") {
+    } else if (view === "appointments") {
       fetchAnimalData();
     } else if (view === "settings") {
       fetchAnimalData();
@@ -162,25 +159,25 @@ const Dashboard = () => {
           <div>
             <p>Livestock</p>
             <div className="leftdashboardbuttons">
-              <label>
+              <label className={view === "dashboard" ? "active" : ""}>
                 <img src={dashboardicon} alt="img" />
                 <button onClick={() => handleViewChange("dashboard")}>
                   Dashboard
                 </button>
               </label>
-              <label>
+              <label className={view === "animals" ? "active" : ""}>
                 <img src={animalicon} alt="img" />
                 <button onClick={() => handleViewChange("animals")}>
                   Animals
                 </button>
               </label>
-              <label>
+              <label className={view === "appointments" ? "active" : ""}>
                 <img src={appointmenticon} alt="img" />
                 <button onClick={() => handleViewChange("appointments")}>
                   Appointments
                 </button>
               </label>
-              <label>
+              <label className={view === "settings" ? "active" : ""}>
                 <img src={settingicon} alt="img" />
                 <button onClick={() => handleViewChange("settings")}>
                   Settings
