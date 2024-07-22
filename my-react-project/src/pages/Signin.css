@@ -18,7 +18,7 @@
     background-color: white;
     max-width: 500px;
     width: 60%;
-    /* height: 100vh; */
+  
   }
   form{
     display: flex;
@@ -118,9 +118,7 @@
   }
 
   .rightsignin img{
-  /* height: inherit; */
   width: inherit;
-  /* height: 700px; */
   width: 80%;
   max-width: 100%;
   }
@@ -158,5 +156,4 @@
   input.filled {
     border-width: 2px;
     border-color: rgb(18, 174, 236);
-     /* Change this to your desired color */
 }

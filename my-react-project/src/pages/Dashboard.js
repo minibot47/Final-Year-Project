@@ -188,7 +188,7 @@ const Dashboard = () => {
           <div className="leftdashboardbuttonsbottom">
             <label className="logoutbutton">
               <img src={logouticon} alt="" />
-              <Link to="/Signin">
+              <Link to="/">
                 <button>LOGOUT</button>
               </Link>
             </label>

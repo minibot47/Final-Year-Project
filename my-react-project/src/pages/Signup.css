@@ -18,7 +18,6 @@
   background-color: white;
   max-width: 500px;
   width: 60%;
-  /* height: 100vh; */
 }
 
 form {
@@ -109,9 +108,7 @@ form label {
 }
 
 .rightsignup img {
-  /* height: inherit; */
   width: inherit;
-  /* height: 700px; */
   width: 80%;
   max-width: 100%;
 }

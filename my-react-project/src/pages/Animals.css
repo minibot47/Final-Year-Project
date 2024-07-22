@@ -76,7 +76,6 @@ select {
 input {
   height: 80%;
   width: 350px;
-  /* margin-right: 4%; */
 }
 
 .Animals table {
@@ -113,7 +112,6 @@ input {
   justify-content: center;
   width: 45px;
   height: 35px;
-  /* background-color: rgba(196, 196, 196, 0.4); */
   font-weight: 100;
   font-size: 30px;
 }
@@ -124,7 +122,6 @@ input {
   justify-content: center;
   width: 45px;
   height: 35px;
-  /* background-color: rgba(196, 196, 196, 0.4); */
   border-radius: 0.2rem;
   font-weight: 100;
 }
