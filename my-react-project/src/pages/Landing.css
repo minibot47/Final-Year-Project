@@ -113,9 +113,10 @@
 }
 
 .firstpage-right img {
-    width: 500px;
-    height: 538px;
+    width: 90%;
+    height: 90%;
     border-radius: 1rem;
+    margin-left: -4%;
 }
 
 .secondpage {
@@ -206,7 +207,7 @@
 
 .thirdpage {
     margin-top: 5%;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -221,7 +222,7 @@
 .thirdpage img {
     margin-top: 3%;
     margin-bottom: 3%;
-    width: 1200px;
+    width: 80%;
     height: 500px;
     border-radius: 0.5rem;
 }
@@ -305,7 +306,7 @@
 }
 
 .fifthpage {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background: rgba(250, 250, 250, 1);
 }
@@ -400,11 +401,13 @@
 }
 
 .sixthpage-top {
-    width: 100%;
+    margin: auto;
+    width: 80%;
     height: 65%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 3%;
 }
 
 .sixthinfo {
@@ -603,7 +606,7 @@ h3 {
 }
 
 /* Media Queries for Screens Larger than MacBook Pro 2020 M1 Chip (2560x1600) */
-
+/* 
 @media (min-width: 2561px) {
     .navbar {
         justify-content: space-between;
@@ -706,4 +709,4 @@ h3 {
     .sixthlist {
         width: 30%;
     }
-}
+} */
