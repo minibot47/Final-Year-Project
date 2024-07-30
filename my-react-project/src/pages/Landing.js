@@ -50,6 +50,11 @@ const Landing = () => {
                 <button className='sign-up'>Sign Up</button>
               </Link>
             </li>
+            <li className='signup-button'>
+              <Link to="/signin">
+                <button className='sign-up'>Sign In</button>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

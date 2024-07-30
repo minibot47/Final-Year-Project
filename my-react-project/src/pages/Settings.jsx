@@ -99,9 +99,8 @@ const Settings = () => {
         </div>
 
         <div className="Appointmentstopright">
-          <img src={not} alt="notifications" />
-
-          <img src={userimg} alt="profile" />
+          {/* <img src={not} alt="notifications" />
+          <img src={userimg} alt="profile" /> */}
         </div>
       </div>
         <div className="user-info">
@@ -116,7 +115,7 @@ const Settings = () => {
                   className="edit-profile-button"
                   onClick={() => handleViewChange("updateprofile")}
                 >
-                  <img src="edit.svg" alt="Edit Icon" width="24" height="24" />{" "}
+                  <img src="edit.svg" alt="Edit Icon" />{" "}
                   Edit Profile
                 </button>
               </div>

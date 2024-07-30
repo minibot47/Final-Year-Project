@@ -7,7 +7,7 @@ import settingicon from "../images/settings.png";
 import logouticon from "../images/logout.png";
 import dogpaw from "../images/dogpaw.png";
 import not from "../images/not.png";
-import profile from "../images/profile.png";
+import profile from "../images/user.png";
 import chart from "../images/chart1.png";
 import chart1 from "../images/chart2.png";
 import appointmenticon from "../images/appointment.png";
@@ -206,7 +206,7 @@ const Dashboard = () => {
                   <h1 className="dashboardpagetop">Dashboard</h1>
                 </div>
                 <div className="dashboardtopright">
-                  <img src={not} alt="notifications" />
+                  {/* <img src={not} alt="notifications" /> */}
                   <img src={profile} alt="profile" onClick={() => handleViewChange("settings")}/>
                 </div>
               </div>

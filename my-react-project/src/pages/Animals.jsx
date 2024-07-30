@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Animals.css";
 import not from "../images/not.png";
-import profile from "../images/profile.png";
+import profile from "../images/user.png";
 import AddLivestockModal from "../components/addlivestockmodal/AddLivestockModal";
 import ViewLivestockModal from "../components/viewLivestockModal/ViewLivestockModal";
 import EditLivestockModal from "../components/editLivestock/EditLivestockModal";
@@ -197,11 +197,11 @@ const Animals = () => {
               type="button"
               className="add-btn"
             >
-              + add
+              add+
             </button>
           </div>
-          <img src={not} alt="notifications" />
-          <img src={profile} alt="profile" />
+          {/* <img src={not} alt="notifications" /> */}
+          <img src={profile} alt="profile"/> 
         </div>
       </div>
       <table>

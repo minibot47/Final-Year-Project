@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./Appointments.css";
 import "./fonts.css";
 import not from "../images/not.png";
-import profile from "../images/profile.png";
+import profile from "../images/user.png";
 import { appointmentTime } from "../utils/site";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -93,7 +93,7 @@ const Appointments = () => {
           </div>
         </div>
         <div className="Appointmentstopright">
-          <img src={not} alt="notifications" />
+          {/* <img src={not} alt="notifications" /> */}
           <img src={profile} alt="profile" />
         </div>
       </div>
