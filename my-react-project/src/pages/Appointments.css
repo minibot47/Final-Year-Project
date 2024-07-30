@@ -212,9 +212,9 @@
   border: rgb(41, 161, 209) solid 2px;
 }
 
-.submit-btn{
+/* .submit-btn{
   text-wrap:nowrap;
-}
+} */
 
 .mode .selected{
   width: 250px;
