@@ -601,3 +601,109 @@ h3 {
         width: 100%;
     }
 }
+
+/* Media Queries for Screens Larger than MacBook Pro 2020 M1 Chip (2560x1600) */
+
+@media (min-width: 2561px) {
+    .navbar {
+        justify-content: space-between;
+        padding: 0 10%;
+    }
+
+    .firstpage {
+        flex-direction: row;
+        margin-top: 2%;
+        padding: 0 10%;
+    }
+
+    .firstpage-left,
+    .firstpage-right {
+        width: 45%;
+        margin: 0;
+    }
+
+    .firstpage-left button {
+        width: 200px;
+    }
+
+    .firstpage-right img {
+        width: 600px;
+        height: auto;
+    }
+
+    .secondpage {
+        height: 300px;
+        padding: 0 10%;
+    }
+
+    .secondpage1,
+    .secondpage2,
+    .secondpage3 {
+        width: 30%;
+    }
+
+    .thirdpage {
+        padding: 0 10%;
+    }
+
+    .thirdpage img {
+        width: 1400px;
+        height: auto;
+    }
+
+    .fourthpage-wrapper {
+        flex-direction: row;
+        padding: 0 10%;
+    }
+
+    .fourthpage-right,
+    .fourthpage-img {
+        width: 45%;
+    }
+
+    .fourthpage-img img {
+        width: 700px;
+        height: auto;
+    }
+
+    .fifthpage {
+        padding: 0 10%;
+    }
+
+    .fifthpage-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        gap: 50px;
+    }
+
+    .fifthpage-grid img {
+        height: 300px;
+    }
+
+    .sixthpage-top,
+    .sixthpage-bottom {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        padding: 0 10%;
+    }
+
+    .sixthinfo {
+        width: 70%;
+    }
+
+    .sixthinfo h2 {
+        width: 80%;
+    }
+
+    .sixthpage-bottom ul {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .sixthlivestock,
+    .sixthcontact,
+    .sixthlist {
+        width: 30%;
+    }
+}

@@ -115,7 +115,7 @@ const Settings = () => {
                   className="edit-profile-button"
                   onClick={() => handleViewChange("updateprofile")}
                 >
-                  <img src="edit.svg" alt="Edit Icon" />{" "}
+                  <img src="edit.svg" alt="Edit Icon" width="15" height="15" />{" "}
                   Edit Profile
                 </button>
               </div>
@@ -132,7 +132,7 @@ const Settings = () => {
             <div className="user-profile edit-tab">
               <div className="user-profile-right">
                 <img className="name-icon" src="email.svg" alt="" />
-                <h3 className="username-"> Email</h3>
+                <h4 className="username-"> Email</h4>
               </div>
               <div className="user-profile-right">
                 <h3 className="name">{userProfile?.email}</h3>

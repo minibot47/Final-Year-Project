@@ -156,7 +156,7 @@ const Dashboard = () => {
     <div className="Dashboard">
       <div className="main">
         <div className="leftdashboard">
-          <div>
+          <div className="buttonsintheleft">
             <p>Livestock</p>
             <div className="leftdashboardbuttons">
               <label className={view === "dashboard" ? "active" : ""}>
