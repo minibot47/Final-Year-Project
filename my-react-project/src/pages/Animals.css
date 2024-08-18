@@ -148,3 +148,43 @@ input {
 }
 
 
+@media (max-width: 768px) {
+  .main{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .rightdashboard table{
+    width: 138%;
+  }
+
+  .animalhealthtop{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: left;
+  }
+
+  .Animalstopright img{
+    display: none;
+  }
+
+  .Animalstopright{
+    margin: 0;
+    margin-bottom: 12%;
+    margin-left: -28%;
+
+  }
+
+  .Animalsearchbar input{
+    width: 280px;
+  }
+
+  .Animals{
+    min-height: 80vh;
+  }
+
+}
+
+

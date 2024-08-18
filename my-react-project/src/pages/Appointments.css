@@ -321,3 +321,41 @@
   color: white;
   border: rgba(33, 150, 243, 1) solid 2px;
 }
+
+@media (max-width: 768px) {
+  .main{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .rightdashboard table{
+    width: 138%;
+  }
+
+  .Appointments{
+    width: 130%;
+  }
+
+  .Appoinmentsbody{
+    margin-top: 50%;
+    font-size: 13px;
+  }
+
+  .meeting-mode{
+    width: 70%;
+  }
+
+  .bookappoinment button{
+    margin-top: 70%;
+    width: 100%;
+  }
+
+  .react-datepicker-popper {
+    margin-left: 0;
+  }
+
+
+
+
+}

@@ -266,15 +266,45 @@
 
     .leftdashboard{
       display: flex;
-      /* flex-direction: row; */
       width: 100%;
       height: 100px;
     }
 
-    /* .leftdashboardbuttons{
-      display: flex;
-      flex-direction: row;
-    } */
+    .innerrightdashboard{
+      width: 135%;
+    }
+    
+    .innerdashboardanimalcount{
+      width: 50%;
+      text-align: center;
+    }
+
+    .innerdashboardanimalcount2{
+      width: 50%;
+      text-align: center;
+    }
+
+    .dashboardchart{
+      height: 150px;
+    }
+
+    .dashboardchart img{
+      width: 50%;
+      height: 100%;
+  }
+
+  .dashboardtopright{
+    display: none;
+  }
+
+  .dashboardtopleft{
+    width: 100%;
+  }
+
+  .Animalcharttable{
+    width: 300px;
+  }
+
   }
   
   

@@ -113,3 +113,32 @@ margin-bottom: 3rem;
   margin-right: 10px;
 }
 
+@media (max-width: 768px) {
+  .main{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Settings{
+    width: 135%;
+  }
+
+  .edit-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+  }
+
+  .username{
+    font-size: 23px;
+  }
+
+
+
+
+
+
+
+}
+
