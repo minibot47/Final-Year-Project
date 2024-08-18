@@ -19,6 +19,7 @@ import ActionButton from "../components/actioButton/ActionButton.jsx";
 import ViewLivestockModal from "../components/viewLivestockModal/ViewLivestockModal.jsx";
 import EditLivestockModal from "../components/editLivestock/EditLivestockModal.jsx";
 import AddLivestockModal from "../components/addlivestockmodal/AddLivestockModal.jsx";
+import logo from '../images/livestockwatchicon.png';
 
 const Dashboard = () => {
   const [view, setView] = useState("dashboard");
@@ -157,6 +158,7 @@ const Dashboard = () => {
       <div className="main">
         <div className="leftdashboard">
           <div className="buttonsintheleft">
+            {/* <img className="logoimg" src={logo} alt="logo" /> */}
             <p>Livestock</p>
             <div className="leftdashboardbuttons">
               <label className={view === "dashboard" ? "active" : ""}>

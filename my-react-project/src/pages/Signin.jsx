@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Cat from "../images/Cat.png";
 import { ThreeDots } from "react-loader-spinner";
 import { toast } from "react-toastify";
+import logo from '../images/livestockwatchicon.png';
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -69,6 +70,7 @@ const Signin = () => {
           <div className="leftsignin">
             <div>
               <form method="post" onSubmit={handleSignIn}>
+                <img src={logo} alt="logo"/>
                 <div className="signintop">Sign In</div>
                 <label>
                   Email <br></br>

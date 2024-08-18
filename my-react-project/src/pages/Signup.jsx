@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Signup.css";
 import { ThreeDots } from "react-loader-spinner";
 import OTPModal from "../components/otp-modal/OtpModal";
+import logo from '../images/livestockwatchicon.png';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -96,6 +97,7 @@ const Signup = () => {
           <div className="leftsignup">
             <div>
               <form onSubmit={handleSignUp} method="">
+              <img src={logo} alt="logo"/>
                 <div className="signuptop">Sign Up</div>
                 <label>
                   Name <br />

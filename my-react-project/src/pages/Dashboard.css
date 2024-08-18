@@ -32,6 +32,14 @@
     font-size: 35px;
   }
   
+  .logoimg{
+    height: 120px;
+    width: 80%;
+    border-radius: 30%;
+    margin-left: 10%;
+
+  }
+
   .leftdashboardbuttons {
     display: flex;
     flex-direction: column;

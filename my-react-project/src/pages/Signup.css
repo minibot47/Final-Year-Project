@@ -30,6 +30,13 @@ form {
   padding: 2%;
   font-size: 17px;
 }
+
+form img{
+  height: 130px;
+  width: 150px;
+  display: flex;
+  align-self: center;
+}
 .signuptop {
   color: rgb(85, 85, 189);
   font-size: 30px;

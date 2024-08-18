@@ -21,12 +21,14 @@ import insta from "../images/Vector (1).png"
 import twitter from "../images/Vector (3).png"
 import youtube from "../images/Vector (4).png"
 import google from "../images/Vector (2).png"
+import logo from '../images/livestockwatchicon.png'
 
 const Landing = () => {
   return (
     <div className='Landing-page'>
       <div className='navbar'>
-        <h1>Livestock</h1>
+        <img src={logo} alt="logo" />
+        <h1>Livestock-Watch</h1>
         <div className='nav-right'>
           <ul>
             <li className="navhover"><button>Home</button></li>
