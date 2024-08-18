@@ -255,6 +255,27 @@
     width: 50px;
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+    .main{
+      display: flex;
+      flex-direction: column;
+
+    }
+
+
+    .leftdashboard{
+      display: flex;
+      /* flex-direction: row; */
+      width: 100%;
+      height: 100px;
+    }
+
+    /* .leftdashboardbuttons{
+      display: flex;
+      flex-direction: row;
+    } */
+  }
   
   
 
