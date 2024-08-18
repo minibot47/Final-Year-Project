@@ -270,12 +270,10 @@
       height: 100px;
     }
     
-    .rightdasboard{
-      width: 100%;
-    }
 
     .innerrightdashboard{
-      width: 135%;
+      width: 137%;
+      min-height: 750px;
     }
     
     .innerdashboardanimalcount{
