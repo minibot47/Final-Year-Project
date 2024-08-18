@@ -269,6 +269,10 @@
       width: 100%;
       height: 100px;
     }
+    
+    .rightdasboard{
+      width: 100%;
+    }
 
     .innerrightdashboard{
       width: 135%;
@@ -302,7 +306,7 @@
   }
 
   .Animalcharttable{
-    width: 300px;
+    width: 70%;
   }
 
   }

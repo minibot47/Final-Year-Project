@@ -338,22 +338,35 @@
   }
 
   .Appoinmentsbody{
-    margin-top: 50%;
+    margin-top: 70%;
     font-size: 13px;
   }
 
   .meeting-mode{
-    width: 70%;
+    width: 60%;
   }
 
   .bookappoinment button{
-    margin-top: 70%;
+    margin-top: 60%;
     width: 100%;
   }
 
   .react-datepicker-popper {
     margin-left: 0;
   }
+
+  .timeslots{
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 65px 65px 65px 65px;
+    grid-row: 1fr 1fr;
+    width: 100px;
+    height: 120px;
+    font-size: 12px;
+    margin-bottom: 30%;
+}
+
+
 
 
 

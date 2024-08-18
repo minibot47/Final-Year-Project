@@ -156,7 +156,8 @@ input {
 
 
   .rightdashboard table{
-    width: 138%;
+    width: 300px;
+    font-size: 15px;
   }
 
   .animalhealthtop{
@@ -173,12 +174,12 @@ input {
   .Animalstopright{
     margin: 0;
     margin-bottom: 12%;
-    margin-left: -28%;
+    margin-left: -30%;
 
   }
 
   .Animalsearchbar input{
-    width: 280px;
+    width: 250px;
   }
 
   .Animals{
