@@ -20,6 +20,7 @@ import ViewLivestockModal from "../components/viewLivestockModal/ViewLivestockMo
 import EditLivestockModal from "../components/editLivestock/EditLivestockModal.jsx";
 import AddLivestockModal from "../components/addlivestockmodal/AddLivestockModal.jsx";
 import logo from '../images/livestockwatchicon.png';
+import menuicon from "../images/dashboardmenuitem.png"
 
 const Dashboard = () => {
   const [view, setView] = useState("dashboard");
@@ -30,6 +31,7 @@ const Dashboard = () => {
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedLivestock, setSelectedLivestock] = useState(null);
+  const [showNav, setShowNav] = useState(false);
   const baseUrl = process.env.REACT_APP_BASE_URL;
 
   const fetchDashboardData = async () => {
@@ -153,10 +155,15 @@ const Dashboard = () => {
     fetchDashboardData();
   };
 
+  const toggleNav = () => {
+    setShowNav(!showNav);
+  };
+
   return (
     <div className="Dashboard">
       <div className="main">
-        <div className="leftdashboard">
+        <button className="mobilemenubutton" onClick={toggleNav}><img src={menuicon} alt="img" /></button>
+        <div className={`leftdashboard ${showNav ? "open" : ""}`}>
           <div className="buttonsintheleft">
             {/* <img className="logoimg" src={logo} alt="logo" /> */}
             <p>Livestock</p>

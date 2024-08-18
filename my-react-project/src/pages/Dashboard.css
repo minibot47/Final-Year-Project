@@ -256,6 +256,70 @@
     cursor: pointer;
   }
 
+  .mobilemenubutton{
+    display: none;
+  }
+
+  .nav-toggle {
+    display: none;
+    background-color: rgba(33, 150, 243, 1);
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .leftdashboard {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .leftdashboard.open {
+    transform: translateX(0);
+  }
+
+  /* @media (max-width: 768px) {
+
+
+
+
+
+    .nav-toggle {
+      display: block;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+    }
+  
+    .leftdashboard {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80%;
+      height: 100%;
+      z-index: 1000;
+      background-color: rgba(18, 63, 97, 1);
+    }
+  
+    .rightdashboard {
+      margin-left: 0;
+    }
+
+
+
+    .leftdashboard{
+      display: none;
+      width: 70%;
+    }
+    
+
+
+
+
+
+  } */
+
   @media (max-width: 768px) {
     .main{
       display: flex;
@@ -263,17 +327,31 @@
 
     }
 
-
-    .leftdashboard{
-      display: flex;
-      width: 100%;
-      height: 100px;
+    .leftdashboard {
+      display: none; /* Ensures it's hidden initially */
+      top: 0;
+      left: 0;
+      width: 80%;
+      height: 100%;
+      z-index: 1000;
+      background-color: rgba(18, 63, 97, 1);
     }
-    
+  
+    .leftdashboard.open {
+      display: block; /* Shows when open class is applied */
+      transform: translateX(0);
+    }
+
+    .mobilemenubutton{
+      display: block;
+      width: 20%;
+      height: 50px;
+      margin: 2%;
+    }
 
     .innerrightdashboard{
       width: 137%;
-      min-height: 750px;
+      min-height: 400px;
     }
     
     .innerdashboardanimalcount{
@@ -307,7 +385,14 @@
     width: 70%;
   }
 
+  .mobilemenubutton img{
+    height: 45px;
+    width: 45px;
+
   }
+
+  }
+  
   
   
 
