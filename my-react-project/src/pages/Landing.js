@@ -29,6 +29,21 @@ const Landing = () => {
       <div className='navbar'>
         <img src={logo} alt="logo" />
         <h1>Livestock-Watch</h1>
+        <div className="mobilemenu">
+          {/* <h1>hi</h1> */}
+          <ol>
+            <li className='signup-button'>
+                <Link to="/signup">
+                  <button className='sign-up'>Sign Up</button>
+                </Link>
+              </li>
+              <li className='signup-button'>
+                <Link to="/signin">
+                  <button className='sign-up'>Sign In</button>
+                </Link>
+              </li>
+          </ol> 
+        </div>
         <div className='nav-right'>
           <ul>
             <li className="navhover"><button>Home</button></li>

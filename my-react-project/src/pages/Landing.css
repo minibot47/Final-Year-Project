@@ -11,6 +11,10 @@
     border-bottom: 1.5px solid blue;
 }
 
+.mobilemenu{
+    display: none;
+}
+
 .navbar h1 {
     color: rgba(33, 150, 243, 1);
     font-size: 20px;
@@ -520,14 +524,28 @@ h3 {
 
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        display: none;
+        /* flex-direction: column; */
+        /* display: none; */
+    }
+
+    .mobilemenu{
+        display: flex;
+        height: 100%;
+        width: 28%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav ol,li{
+        display: flex;
+        flex-direction: row;
     }
 
     .navbar ul {
         flex-direction: column;
         gap: 1rem;
         display: none;
+        flex-direction: row;
     }
 
     .firstpage {
