@@ -534,7 +534,6 @@ h3 {
         flex-direction: column;
         margin-top: 10%;
         height: 500px;
-        padding: 3%;
     }
 
     .firstpage-left {
@@ -612,6 +611,7 @@ h3 {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        height: 50%;
     }
 
     .sixthinfo {
@@ -630,6 +630,7 @@ h3 {
     .sixthlivestock,
     .sixthcontact{
         width: 100%;
+        margin: 0;
     }
     .sixthlist {
         display: none;
