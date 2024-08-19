@@ -130,6 +130,10 @@ form label {
 }
 
 @media screen and (max-width: 768px) {
+  .signup-wrapper{
+    height: 100vh;
+  }
+
   .rightsignup {
     display: none;
   }
