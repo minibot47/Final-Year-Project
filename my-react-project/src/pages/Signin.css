@@ -18,6 +18,7 @@
     background-color: white;
     max-width: 500px;
     width: 60%;
+    margin-top: 2%;
   
   }
   form{
@@ -130,6 +131,11 @@
     justify-content: center;
     align-items: center;
     margin: 1%;
+  }
+  .backhome{
+    width: 90%;
+    display: block;
+    font-size: lighter;
   }
 
 

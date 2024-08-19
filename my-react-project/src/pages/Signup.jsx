@@ -93,6 +93,11 @@ const Signup = () => {
   return (
     <>
       <div className="signup-wrapper">
+      <div className="backhome">
+                      <Link to="/">
+                        <button>Back to homepage</button>
+                      </Link>
+                    </div> 
         <div className="signup">
           <div className="leftsignup">
             <div>

@@ -66,6 +66,11 @@ const Signin = () => {
   return (
     <>
       <div className="signin-wrapper">
+      <div className="backhome">
+                      <Link to="/">
+                        <button>Back to homepage</button>
+                      </Link>
+                    </div>             
         <div className="signin">
           <div className="leftsignin">
             <div>
@@ -122,6 +127,11 @@ const Signin = () => {
                   <Link to="/SignUp">
                     <button>Sign Up</button>
                   </Link>
+
+
+
+
+                  
                 </div>
               </form>
             </div>
