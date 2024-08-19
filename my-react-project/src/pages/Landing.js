@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Landing.css";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
@@ -22,17 +22,25 @@ import twitter from "../images/Vector (3).png"
 import youtube from "../images/Vector (4).png"
 import google from "../images/Vector (2).png"
 import logo from '../images/livestockwatchicon.png'
+import menuicon from "../images/dashboardmenuitem.png"
+
 
 const Landing = () => {
+  const [showNav1, setShowNav1] = useState(false);
+  const toggleNav1 = () => {
+    setShowNav1(!showNav1);
+    console.log('button clicked', showNav1)
+  };
+
   return (
-    <div className='Landing-page'>
+    <div className='landing-page'>
       <div className='navbar'>
-        <img src={logo} alt="logo" />
+        <img className="logomain" src={logo} alt="logo" />
         <h1>Livestock-Watch</h1>
         <div className="mobilemenu">
-          {/* <h1>hi</h1> */}
-          <ol>
-            <li className='signup-button'>
+        <button className="mobilemenubutton" onClick={toggleNav1}><img src={menuicon} alt="img" /></button>
+          <ol className={`mobilemenu-ol ${showNav1 ? 'show' : 'hide'}`}>
+              <li className='signup-button'>
                 <Link to="/signup">
                   <button className='sign-up'>Sign Up</button>
                 </Link>

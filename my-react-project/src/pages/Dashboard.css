@@ -279,47 +279,6 @@
     transform: translateX(0);
   }
 
-  /* @media (max-width: 768px) {
-
-
-
-
-
-    .nav-toggle {
-      display: block;
-      position: fixed;
-      top: 10px;
-      left: 10px;
-    }
-  
-    .leftdashboard {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 80%;
-      height: 100%;
-      z-index: 1000;
-      background-color: rgba(18, 63, 97, 1);
-    }
-  
-    .rightdashboard {
-      margin-left: 0;
-    }
-
-
-
-    .leftdashboard{
-      display: none;
-      width: 70%;
-    }
-    
-
-
-
-
-
-  } */
-
   @media (max-width: 768px) {
     .main{
       display: flex;
