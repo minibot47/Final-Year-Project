@@ -562,12 +562,12 @@ h3 {
       }
     
       .navbar ul {
-        display: none; /* Ensure the main navbar is hidden on mobile */
+        display: none;
       }
     
       .navbar button {
         display: block;
-        color: white; /* Button text color for visibility */
+        color: white;
         margin-left: -55px;
         margin-right: -18px;
       }
@@ -680,6 +680,7 @@ h3 {
     .fifthpage-grid {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(4, auto);
+        margin-top: 15%;
     }
 
     .fifthpage-grid img {
@@ -698,6 +699,19 @@ h3 {
         text-align: center;
         height: 50%;
         padding-left: 2%;
+        
+    }
+
+    .sixthpage-top h2{
+        font-size: 20px;
+
+    }
+
+    .sixthpage-bottom{
+        margin-top: 5%;
+        padding-top: 0;
+        padding-bottom: 10%;
+
     }
 
     .sixthinfo {
