@@ -68,7 +68,7 @@ const Signin = () => {
       <div className="signin-wrapper">
       <div className="backhome">
                       <Link to="/">
-                        <button>Back to homepage</button>
+                        <button>Homepage</button>
                       </Link>
                     </div>             
         <div className="signin">
@@ -76,7 +76,7 @@ const Signin = () => {
             <div>
               <form method="post" onSubmit={handleSignIn}>
                 <img src={logo} alt="logo"/>
-                <div className="signintop">Sign In</div>
+                <div className="signintop">Sign-In</div>
                 <label>
                   Email <br></br>
                   <input
@@ -118,14 +118,14 @@ const Signin = () => {
                       width={30}
                     />
                   ) : (
-                    "Sign In"
+                    "Sign-In"
                   )}
                 </button>
                 {/* </Link> */}
                 <div className="signinbottom">
                   Don't have an account?{" "}
                   <Link to="/SignUp">
-                    <button>Sign Up</button>
+                    <button>Sign-Up</button>
                   </Link>
 
 

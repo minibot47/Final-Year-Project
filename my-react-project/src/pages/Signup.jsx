@@ -95,7 +95,7 @@ const Signup = () => {
       <div className="signup-wrapper">
       <div className="backhome">
                       <Link to="/">
-                        <button>Back to homepage</button>
+                        <button>Homepage</button>
                       </Link>
                     </div> 
         <div className="signup">
@@ -103,7 +103,7 @@ const Signup = () => {
             <div>
               <form onSubmit={handleSignUp} method="">
               <img src={logo} alt="logo"/>
-                <div className="signuptop">Sign Up</div>
+                <div className="signuptop">Sign-Up</div>
                 <label>
                   Name <br />
                   <input
@@ -169,14 +169,14 @@ const Signup = () => {
                       width={30}
                     />
                   ) : (
-                    "Sign Up"
+                    "Sign-Up"
                   )}
                 </button>
                 <div className="signupbottom">
                   Already have an account?{" "}
                   <Link to="/Signin">
                     <button type="button" className="signinbutton">
-                      Sign In
+                      Sign-In
                     </button>
                   </Link>
                 </div>
