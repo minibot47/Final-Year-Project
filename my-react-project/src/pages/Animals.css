@@ -80,7 +80,7 @@ input {
 }
 
 .Animals table {
-  width: 95%;
+  width: 100%;
   border: 1px solid transparent;
   border-collapse: collapse;
   font-family: Georgia, "Times New Roman", Times, serif;
