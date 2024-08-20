@@ -270,11 +270,6 @@
     padding: 10px;
   }
   
-  .leftdashboard {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-  }
-  
   .leftdashboard.open {
     transform: translateX(0);
   }
