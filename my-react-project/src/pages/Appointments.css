@@ -328,11 +328,6 @@
     flex-direction: column;
   }
 
-
-  .rightdashboard table{
-    width: 138%;
-  }
-
   .Appointments{
     width: 130%;
   }
@@ -370,10 +365,5 @@
 .Appointmentstopright{
   display: none;
 }
-
-
-
-
-
 
 }

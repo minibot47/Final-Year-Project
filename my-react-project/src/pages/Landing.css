@@ -582,8 +582,8 @@ h3 {
     }
 
     .mobilemenubutton img{
-        height: 50px;
-        width: 50px;
+        height: 45px;
+        width: 45px;
     }
 
     .nav ol,li{
@@ -605,7 +605,7 @@ h3 {
     }
 
     .firstpage-left {
-        width: 105%;
+        width: 95%;
         padding-left: 2%;
         margin: 0;
     }
@@ -631,7 +631,7 @@ h3 {
     .secondpage {
         flex-direction: column;
         height: auto;
-        width: 100%;
+        width: 95%;
         padding: 3.5%;
     }
 
@@ -644,7 +644,7 @@ h3 {
 
 
     .thirdpage{
-        width: 100%;
+        width: 95%;
         padding-left: 2.5%;
     }
     .thirdpage img {
@@ -658,7 +658,7 @@ h3 {
     }
 
     .fourthpage-right{
-        width: 100%;
+        width: 95%;
         padding: 3%;
         
     }
@@ -673,7 +673,7 @@ h3 {
     }
 
     .fifthpage{
-        width: 105%;
+        width: 100%;
         padding-left: 2%;
     }
 
@@ -688,7 +688,7 @@ h3 {
     }
 
     .sixthpage{
-        width: 105%;
+        width: 100%;
         
     }
 
@@ -715,7 +715,8 @@ h3 {
     }
 
     .sixthinfo {
-        width: 90%;
+        width: 95%;
+        padding: 3%;
     }
 
     .sixthinfo h2 {

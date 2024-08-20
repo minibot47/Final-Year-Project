@@ -158,6 +158,36 @@ form label {
   .signuptop {
     font-size: 1.5rem;
   }
+
+  form img {
+    height: 150px;
+    width: 200px;
+    display: flex;
+    align-self: center;
+}
+
+.signupbottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  font-size: 18px;
+}
+
+.signupbutton {
+  width: 103%;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-top: 2%;
+  cursor: pointer;
+  border: none;
+}
+
+
 }
 
 input.filled {

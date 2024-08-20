@@ -155,9 +155,10 @@ input {
   }
 
 
-  .rightdashboard table{
-    width: 300px;
+  .animalstable{
+    width: 100%;
     font-size: 15px;
+    margin-top: 5%;
   }
 
   .animalhealthtop{

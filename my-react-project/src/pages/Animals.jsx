@@ -204,7 +204,7 @@ const Animals = () => {
           <img src={profile} alt="profile"/> 
         </div>
       </div>
-      <table>
+      <table className="animalstable">
         <thead>
           <tr>
             <th>ID</th>

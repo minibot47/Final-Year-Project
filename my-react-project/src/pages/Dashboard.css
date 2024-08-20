@@ -275,10 +275,13 @@
   }
 
   @media (max-width: 768px) {
+    body, html {
+      overflow-x: hidden;
+  }
     .main{
       display: flex;
       flex-direction: column;
-
+      width: 97%;
     }
 
     .leftdashboard {
@@ -301,29 +304,32 @@
       width: 20%;
       height: 50px;
       margin: 2%;
+      background-color: transparent;
+      border: none;
     }
 
     .innerrightdashboard{
-      width: 137%;
+      width: 135%;
       min-height: 400px;
     }
     
     .innerdashboardanimalcount{
-      width: 50%;
+      width: 48%;
       text-align: center;
     }
 
     .innerdashboardanimalcount2{
-      width: 50%;
+      width: 48%;
       text-align: center;
     }
 
     .dashboardchart{
-      height: 150px;
+      height: 100%;
+    
     }
 
     .dashboardchart img{
-      width: 50%;
+      width: 48%;
       height: 100%;
   }
 
@@ -336,14 +342,15 @@
   }
 
   .Animalcharttable{
-    width: 70%;
-  }
-
-  .mobilemenubutton img{
-    height: 45px;
-    width: 45px;
+    width: 100%;
 
   }
+
+  .Animalcharttable-top table{
+    width: 100%;
+    font-size: 15px;
+  }
+
 
   }
   

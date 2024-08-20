@@ -109,8 +109,6 @@
   text-decoration: none;
 
   }
-
-
   
   .signinbottom a{
     color: blue;
@@ -132,15 +130,8 @@
     align-items: center;
     margin: 1%;
   }
-  .backhome{
-    width: 90%;
-    display: block;
-    font-size: lighter;
-  }
 
 
-
-  
   @media screen and (max-width: 768px) {
 
     .signin-wrapper{
@@ -161,6 +152,43 @@
     .signintop{
       font-size: 1.5rem;
     }
+
+    .backhome{
+      width: 35%;
+      display: block;
+      cursor: pointer;
+    }
+
+    .backhome button{
+      width: 100%;
+      height: 100px;
+      display: block;
+      cursor: pointer;
+    }
+
+    .backhome button:hover{
+      background-color: burlywood;
+      cursor: pointer;
+    }
+
+    form img {
+      height: 160px;
+      width: 200px;
+      display: flex;
+      align-self: center;
+  }
+
+  .signinbottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+    font-size: 18px;
+}
+
+
+
   }
 
   input.filled {
