@@ -558,7 +558,7 @@ h3 {
       .mobilemenu-ol {
         width: 30%;
         padding-right: 40%;
-        margin-left: 40%;
+        margin-left: 25%;
       }
     
       .navbar ul {
@@ -582,8 +582,8 @@ h3 {
     }
 
     .mobilemenubutton img{
-        height: 45px;
-        width: 45px;
+        height: 40px;
+        width: 40px;
     }
 
     .nav ol,li{

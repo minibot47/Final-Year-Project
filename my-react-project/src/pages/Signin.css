@@ -10,7 +10,7 @@
   background-color: white;
   width: 100%;
   margin: 0 auto;
-  height: 85vh;
+  height: 80vh;
   max-width: 1440px;
   }
   .leftsignin{
@@ -32,8 +32,8 @@
     font-size: 17px;
   }
   .signintop{
-    color: blue;
-    font-size: 30px;
+    color: rgb(85, 85, 189);
+    font-size: 25px;
     margin-bottom: 2%;
   
   }
@@ -44,9 +44,10 @@
     align-items: center;
     justify-content: center;
     font-size: 18px;
-    margin-top: 2%;
+    margin-top: 3%;
     cursor: pointer;
     border: none;
+    border-radius: 0.5rem;
   }
   
   .signinbutton:hover{
@@ -57,7 +58,7 @@
   form input{
     width: 100%;
     height: 45px;
-    margin-top: 2%;
+    margin-top: 3%;
     border: 0.5px solid transparent;
     background-color: rgb(243, 237, 237);
     outline: none;
@@ -96,9 +97,10 @@
   .signinbottom button{
     border: none;
     background-color: transparent;
-    color: rgb(18, 174, 236);
+    color: rgb(85, 85, 189);
     font-size: 15px;
     cursor: pointer;
+    font-weight: bolder;
   }
 
   .signinbottom button:hover{
@@ -111,7 +113,7 @@
   }
   
   .signinbottom a{
-    color: blue;
+    color: rgb(85, 85, 189);
     padding-left: 1%;
     text-decoration: none;
   }
@@ -135,14 +137,13 @@
   @media screen and (max-width: 768px) {
 
     .signin-wrapper{
-      height: 90vh;
+      height: 85vh;
     }
     .rightsignin{
       display: none;
     }
     .leftsignin{
       width: 100%;
-      max-width: 500px;
     
     }
     form{
@@ -174,6 +175,18 @@
     justify-content: center;
     margin-top: 2%;
     font-size: 18px;
+}
+
+.signinbutton{
+  /* width: 105%; */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-top: 2%;
+  cursor: pointer;
+  border-radius: 0.5rem;
 }
 
 

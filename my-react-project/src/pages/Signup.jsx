@@ -103,7 +103,7 @@ const Signup = () => {
             <div>
               <form onSubmit={handleSignUp} method="">
               <img src={logo} alt="logo"/>
-                <div className="signuptop">Sign-Up</div>
+                <div className="signuptop">Create an account</div>
                 <label>
                   Name <br />
                   <input

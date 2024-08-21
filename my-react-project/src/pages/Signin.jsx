@@ -76,7 +76,7 @@ const Signin = () => {
             <div>
               <form method="post" onSubmit={handleSignIn}>
                 <img src={logo} alt="logo"/>
-                <div className="signintop">Sign-In</div>
+                <div className="signintop">Login to your account</div>
                 <label>
                   Email <br></br>
                   <input
