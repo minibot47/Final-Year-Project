@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Signin.css";
+// import "./Signin.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Cat from "../images/Cat.png";
@@ -66,48 +66,55 @@ const Signin = () => {
   return (
     <>
       <div className="signin-wrapper">
-      <div className="backhome">
-                      <Link to="/">
-                        <button className="backhomebutton">Homepage</button>
-                      </Link>
-                    </div>             
-        <div className="signin">
-          <div className="leftsignin">
+      {/* <div className="backhome">
+        <Link to="/">
+          <button className="backhomebutton">Homepage</button>
+        </Link>
+      </div>*/}
+        <div className="signin grid grid-cols-2 signup gap-20 px-4">
+          <div className="leftsignin px-24  space-y-4 sm:m-12 lg:m-0 items-center rounded-lg">
             <div>
-              <form method="post" onSubmit={handleSignIn}>
-                <img src={logo} alt="logo"/>
-                <div className="signintop">Login to your account</div>
-                <label>
-                  Email <br></br>
+              <form method="post" onSubmit={handleSignIn} className="grid justify-items-stretch text-left m-auto gap-2">
+                <img src={logo} alt="logo" className="w-[100px] md:w-[150px] object-cover"/>
+                <div className="signintop text-primary text-left text-3xl md:text-4xl font-black mb-0 md:mb-2">Login</div>
+                
+                <div className="space-y-1 md:space-y-1 items-start">
+                  <label className='text-md md:text-md text-left'>Email</label>
                   <input
                     type="email"
                     name="email"
                     value={signInData.email}
                     onChange={handleChange}
                     placeholder="Enter Email Address"
-                    className={signInData.email ? "filled" : ""}
+                    // className={signInData.email ? "filled" : "border-2 p-4 text-md w-80 md:w-full rounded-md border-fa bg-fa focus:outline-primary focus:bg-fa"}
+                    className="border-2 p-4 text-md w-80 md:w-full rounded-md border-fa bg-fa focus:outline-primary focus:bg-fa"
                   ></input>
-                </label>
-                <label>
-                  Password <br></br>
+                </div><br/>
+                  
+                <div className="space-y-1 md:space-y-1 items-start">
+                  <label className='text-md md:text-md text-left'>Password</label>
                   <input
                     type="password"
                     name="password"
                     value={signInData.password}
                     onChange={handleChange}
                     placeholder="Enter Password"
-                    className={signInData.password ? "filled" : ""}
+                    className="border-2 p-4 text-md w-80 md:w-full rounded-md border-fa bg-fa focus:outline-primary focus:bg-fa"
+                    // className={signInData.password ? "filled" : "border-2 p-4 text-md w-80 md:w-full rounded-md border-fa bg-fa focus:outline-primary focus:bg-fa"}
                   ></input>
-                </label>
+                </div><br/>
+                
+                  
+                
                 {/* <Link to="/Dashboard"> */}
                 <button
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
+                  // style={{
+                  //   display: "flex",
+                  //   justifyContent: "center",
+                  //   alignItems: "center",
+                  // }}
                   type="submit"
-                  className="signinbutton"
+                  className="signinbutton flex w-80 md:w-full mt-4 py-4 px-20 md:px-64 rounded-md border-fa bg-primary cursor-pointer text-white text-md text-left font-bold"
                   disabled={loading}
                 >
                   {loading ? (
@@ -125,19 +132,15 @@ const Signin = () => {
                 <div className="signinbottom">
                   Don't have an account?{" "}
                   <Link to="/SignUp">
-                    <button>Sign-Up</button>
-                  </Link>
-
-
-
-
-                  
+                    <button className=" text-primary font-medium text-md">Sign-Up</button>
+                  </Link> 
                 </div>
               </form>
             </div>
           </div>
-          <div className="rightsignin">
-            <img src={Cat} alt="dog image" />
+
+          <div className="rightsignin hidden md:flex lg:flex">
+            <img src={Cat} alt="dog image" className="w-full h-screen object-cover right-0"/>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import axios from "axios";
 import dog from "../images/Dog.png";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./Signup.css";
+// import "./Signup.css";
 import { ThreeDots } from "react-loader-spinner";
 import OTPModal from "../components/otp-modal/OtpModal";
 import logo from '../images/livestockwatchicon.png';
@@ -93,41 +93,52 @@ const Signup = () => {
   return (
     <>
       <div className="signup-wrapper">
-      <div className="backhome">
-                      <Link to="/">
-                      <button className="backhomebutton">Homepage</button>
-                      </Link>
-                    </div> 
-        <div className="signup">
-          <div className="leftsignup">
+      {/* <div className="backhome">
+        <Link to="/">
+          <button className="backhomebutton">Homepage</button>
+        </Link>
+      </div>  */}
+        <div className="grid grid-cols-2 signup justify-between gap-20 px-4">
+          <div className=" px-24 space-y-4 sm:m-12 lg:m-0 items-center rounded-lg">
             <div>
-              <form onSubmit={handleSignUp} method="">
-              <img src={logo} alt="logo"/>
-                <div className="signuptop">Create an account</div>
-                <label>
-                  Name <br />
-                  <input
-                    type=" text"
-                    placeholder="Enter Full Name"
-                    name="fullname"
-                    value={signUpData.fullname}
-                    onChange={handleChange}
-                    className={signUpData.fullname ? "filled" : ""}
-                  />
-                </label>
-                <label>
-                  Email <br />
+              {/* <img src={logo} alt="logo" className="w-[100px] md:w-[150px] object-cover"/>
+              <div className="signuptop text-primary text-left text-3xl md:text-4xl font-black mb-0 md:mb-2">Create an account</div> */}
+              
+              {/* Form */}
+              <form onSubmit={handleSignUp} method="" className="grid justify-items-stretch text-left m-auto gap-2">
+                <img src={logo} alt="logo" className="w-[100px] md:w-[150px] object-cover"/>
+                <div className="signuptop text-primary text-left text-3xl md:text-4xl font-black mb-0 md:mb-2">Create an account</div>
+                {/* Name */}
+                <div className="space-y-1 md:space-y-1 items-start">
+                  <label className='text-md md:text-md text-left'>Name</label> 
+                    <input
+                      type=" text"
+                      placeholder="Enter Full Name"
+                      name="fullname"
+                      value={signUpData.fullname}
+                      onChange={handleChange}
+                      // className={signUpData.fullname ? "filled" : ""}
+                      className="border-2 p-4 text-md w-80 md:w-full rounded-md border-fa bg-fa focus:outline-primary focus:bg-fa"
+                    /> 
+                </div><br/>
+
+                {/* Email */}
+                <div className="space-y-1 md:space-y-1 items-start">
+                  <label className='text-md md:text-md text-left'>Email </label>
                   <input
                     type="email"
                     placeholder="Enter Email Address"
                     name="email"
                     value={signUpData.email}
                     onChange={handleChange}
-                    className={signUpData.email ? "filled" : ""}
+                    // className={signUpData.email ? "filled" : ""}
+                    className="border-2 p-4 text-md w-80 md:w-full rounded-md border-fa bg-fa focus:outline-primary focus:bg-fa"
                   />
-                </label>
-                <label>
-                  Password <br />
+                </div><br/>
+                  
+                {/* Password */}
+                <div className="space-y-1 md:space-y-1 items-start">
+                  <label className='text-md md:text-md text-left'>Password</label>
                   <input
                     type="password"
                     placeholder="Enter Password"
@@ -135,30 +146,34 @@ const Signup = () => {
                     min={7}
                     value={signUpData.password}
                     onChange={handleChange}
-                    className={signUpData.password ? "filled" : ""}
+                    // className={signUpData.password ? "filled" : ""}
+                    className="border-2 p-4 text-md w-80 md:w-full rounded-md border-fa bg-fa focus:outline-primary focus:bg-fa"
                   />
-                </label>
-                <label>
-                  Confirm Password <br />
+                </div><br/>
+
+                {/* Confirm Password */}
+                <div className="space-y-1 md:space-y-1 items-start">
+                  <label className='text-md md:text-md text-left'>Confirm Password</label>
                   <input
                     type="password"
+                    placeholder="Re-Enter Password"
                     name="confirmPassword"
+                    min={7}
                     value={signUpData.confirmPassword}
                     onChange={handleChange}
-                    min={7}
-                    className={signUpData.confirmPassword ? "filled" : ""}
-                    placeholder="Re-Enter Password"
+                    // className={signUpData.password ? "filled" : ""}
+                    className="border-2 p-4 text-md w-80 md:w-full rounded-md border-fa bg-fa focus:outline-primary focus:bg-fa"
                   />
-                </label>
+                </div>                        
 
                 <button
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
+                  // style={{
+                  //   display: "flex",
+                  //   justifyContent: "center",
+                  //   alignItems: "center",
+                  // }}
                   type="submit"
-                  className="signupbutton"
+                  className="signupbutton flex w-80 md:w-full mt-4 py-4 px-20 md:px-64 rounded-md border-fa bg-primary cursor-pointer text-white text-md text-left font-bold"
                   disabled={loading}
                 >
                   {loading ? (
@@ -169,22 +184,23 @@ const Signup = () => {
                       width={30}
                     />
                   ) : (
-                    "Sign-Up"
+                    <div>Sign Up</div>
                   )}
                 </button>
-                <div className="signupbottom">
-                  Already have an account?{" "}
-                  <Link to="/Signin">
-                    <button type="button" className="signinbutton">
+                <div className=" flex flex-row items-center gap-2 text-center">
+                  <p className="text-black text-md">Already have an account?{" "}</p>
+                  <Link to="/Signin" className=" text-primary font-medium text-md">
+                    {/* <button type="button" > */}
                       Sign-In
-                    </button>
+                    {/* </button> */}
                   </Link>
-                </div>
+                </div><br/>
               </form>
             </div>
           </div>
-          <div className="rightsignup">
-            <img src={dog} alt="dog" />
+
+          <div className="rightsignup hidden md:flex lg:flex">
+            <img src={dog} alt="dog" className="w-[500px] h-full object-cover right-0"/>
           </div>
         </div>
         <OTPModal
