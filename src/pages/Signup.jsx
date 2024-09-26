@@ -166,27 +166,12 @@ const Signup = () => {
                   />
                 </div>                        
 
-                <button
-                  // style={{
-                  //   display: "flex",
-                  //   justifyContent: "center",
-                  //   alignItems: "center",
-                  // }}
-                  type="submit"
+                <button type="submit"
                   className="signupbutton flex w-80 md:w-full mt-4 py-4 px-20 md:px-64 rounded-md border-fa bg-primary cursor-pointer text-white text-md text-left font-bold"
-                  disabled={loading}
-                >
-                  {loading ? (
-                    <ThreeDots
-                      type="ThreeDots"
-                      color="#000"
-                      height={30}
-                      width={30}
-                    />
-                  ) : (
-                    <div>Sign Up</div>
-                  )}
+                  disabled={loading}>
+                    Signup
                 </button>
+                
                 <div className=" flex flex-row items-center gap-2 text-center">
                   <p className="text-black text-md">Already have an account?{" "}</p>
                   <Link to="/Signin" className=" text-primary font-medium text-md">

@@ -107,35 +107,22 @@ const Signin = () => {
                   
                 
                 {/* <Link to="/Dashboard"> */}
-                <button
-                  // style={{
-                  //   display: "flex",
-                  //   justifyContent: "center",
-                  //   alignItems: "center",
-                  // }}
-                  type="submit"
-                  className="signinbutton flex w-80 md:w-full mt-4 py-4 px-20 md:px-64 rounded-md border-fa bg-primary cursor-pointer text-white text-md text-left font-bold"
-                  disabled={loading}
-                >
-                  {loading ? (
-                    <ThreeDots
-                      type="ThreeDots"
-                      color="#000"
-                      height={30}
-                      width={30}
-                    />
-                  ) : (
-                    "Sign-In"
-                  )}
+                <button type="submit"
+                  className="signupbutton flex w-80 md:w-full  py-4 px-20 md:px-64 rounded-md border-fa bg-primary cursor-pointer text-white text-md text-center font-bold"
+                  disabled={loading}>
+                    Sign In
                 </button>
-                {/* </Link> */}
-                <div className="signinbottom">
-                  Don't have an account?{" "}
-                  <Link to="/SignUp">
-                    <button className=" text-primary font-medium text-md">Sign-Up</button>
-                  </Link> 
-                </div>
+
+                
               </form>
+
+              {/* </Link> */}
+              <div className="signinbottom">
+                Don't have an account?{" "}
+                <Link to="/SignUp">
+                  <button className=" text-primary font-medium text-md">Sign Up</button>
+                </Link> 
+              </div>
             </div>
           </div>
 
